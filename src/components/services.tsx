@@ -1,87 +1,89 @@
 "use client"
-
-import { motion } from "motion/react"
-import { Globe, Smartphone, Search, Palette, Database, Cloud } from "lucide-react"
+import { ArrowRight } from 'lucide-react'
+import React, { useState } from 'react'
+import ServiceModal from './service-modal'
 
 const services = [
   {
-    icon: Globe,
     title: "Web Development",
-    description: "Modern, responsive websites built with Next.js for optimal performance and SEO.",
-    color: "text-red-500",
+    description:
+      "High-performance websites with Next.js, optimized for speed, SEO, and user experience.",
   },
   {
-    icon: Smartphone,
-    title: "Mobile Apps",
-    description: "Cross-platform mobile applications using Flutter for iOS and Android.",
-    color: "text-orange-500",
+    title: "Mobile Development",
+    description:
+      "Cross-platform mobile apps using Flutter or React Native that feel native on iOS and Android.",
   },
   {
-    icon: Search,
-    title: "SEO Optimization",
-    description: "Built-in SEO best practices to ensure your website ranks high on search engines.",
-    color: "text-red-400",
-  },
-  {
-    icon: Palette,
-    title: "UI/UX Design",
-    description: "Mesmerizing user interfaces that provide exceptional user experiences.",
-    color: "text-orange-400",
-  },
-  {
-    icon: Database,
-    title: "Backend Development",
-    description: "Scalable backend solutions with modern databases and APIs.",
-    color: "text-red-600",
-  },
-  {
-    icon: Cloud,
     title: "Cloud Solutions",
-    description: "Deploy and scale your applications with modern cloud infrastructure.",
-    color: "text-orange-600",
+    description:
+      "Scalable cloud infrastructure with AWS, GCP, or Vercel to support growth and reliability.",
+  },
+  {
+    title: "UI/UX Design",
+    description:
+      "Beautiful, user-focused designs that blend aesthetics with functionality for seamless experiences.",
+  },
+  {
+    title: "API & Backend Development",
+    description:
+      "Robust, secure, and scalable APIs and backends tailored to your business needs.",
+  },
+  {
+    title: "DevOps & Automation",
+    description:
+      "CI/CD pipelines, monitoring, and automated workflows to keep your systems running smoothly.",
   },
 ]
 
-export function Services() {
-  return (
-    <section className="py-32 bg-gradient-to-br from-zinc-800 to-zinc-950" id="services">
-      <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
-        >
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 text-balance font-mono">
-            <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">Services</span>
-          </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto text-pretty font-light">
-            Professional development solutions for modern businesses
-          </p>
-        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group"
-            >
-              <div className="bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-xl p-8 hover:bg-gray-900/50 transition-all duration-300 hover:border-red-500/30">
-                <div className="w-14 h-14 rounded-lg bg-gray-800/50 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
-                  <service.icon className={`w-7 h-7 ${service.color}`} />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-4">{service.title}</h3>
-                <p className="text-gray-400 leading-relaxed font-light">{service.description}</p>
-              </div>
-            </motion.div>
-          ))}
+function Services() {
+  const [selectedService, setSelectedService] = useState<null | typeof services[0]>(null)
+  return (
+    <section className='min-h-screen max-w-7xl py-20 px-4 flex flex-col gap-12' id='services'>
+      <div>
+        <h4 className='font-semibold'>OUR SERVICES</h4>
+        <div className='grid md:grid-cols-2 gap-5 items-center'>
+          <div>
+            <h1 className='text-3xl font-bold md:text-5xl leading-none'>
+              What
+              <span className='inline-block px-4'>Services</span>
+              <br />
+              Do We Offer?
+            </h1>
+          </div>
+          <p>
+            Our team blends cutting-edge technology with sleek design to deliver solutions that are not only reliable but also remarkable. Whether it’s launching your first product or optimizing enterprise systems, we help you stay ahead of the curve
+          </p>
         </div>
       </div>
+      <div className="divide-y divide-white/30">
+        {services.map((service) => (
+          <div
+            key={service.title}
+            onClick={() => setSelectedService(service)}
+            className="flex justify-between cursor-pointer items-center py-5 h-[6.5em] font-medium border-b border-white group hover:bg-white transition-all hover:px-5 md:hover:px-10"
+          >
+            <h1 className="text-2xl flex items-end gap-2 md:text-4xl lg:text-5xl opacity-50 cursor-pointer transition-all group-hover:opacity-100 group-hover:text-black group-hover:text-3xl md:group-hover:text-5xl lg:group-hover:text-6xl">
+              {service.title}
+              <div className='size-3 bg-[#ff44f9] transition-opacity mb-[3px] opacity-0 group-hover:opacity-100'></div>
+            </h1>
+            <div className="rounded-full border-2 group-hover:border-black p-3 transition-all group-hover:translate-x-2">
+              <ArrowRight className="w-6 h-6 group-hover:text-black transition-colors" />
+            </div>
+          </div>
+        ))}
+      </div>
+      {selectedService && (
+        <ServiceModal
+          isOpen={!!selectedService}
+          onClose={() => setSelectedService(null)}
+          title={selectedService.title}
+          description={selectedService.description}
+        />
+      )}
     </section>
   )
 }
+
+export default Services

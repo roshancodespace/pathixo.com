@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 function Navigation() {
@@ -10,13 +11,13 @@ function Navigation() {
                     </div>
                     <h1 className='text-2xl ml-1' style={{fontFamily: "var(--font-marck)"}}>athixo</h1>
                 </div>
-                <ul className='hidden md:flex'>
-                    <li className='inline-block mx-4 cursor-pointer hover:underline'>Home</li>
-                    <li className='inline-block mx-4 cursor-pointer hover:underline'>Services</li>
-                    <li className='inline-block mx-4 cursor-pointer hover:underline'>Portfolio</li>
-                    <li className='inline-block mx-4 cursor-pointer hover:underline'>About</li>
-                    <li className='inline-block mx-4 cursor-pointer hover:underline'>Contact</li>
-                </ul>
+                <div className='hidden md:flex'>
+                    <Link href="/#home" className='inline-block mx-4 cursor-pointer hover:underline'>Home</Link>
+                    <Link href="/#services" className='inline-block mx-4 cursor-pointer hover:underline'>Services</Link>
+                    <Link href="/#portfolio" className='inline-block mx-4 cursor-pointer hover:underline'>Portfolio</Link>
+                    <Link href="/#about" className='inline-block mx-4 cursor-pointer hover:underline'>About</Link>
+                    <Link href="/#contact" className='inline-block mx-4 cursor-pointer hover:underline'>Contact</Link>
+                </div>
             </div>
         </nav>
     )

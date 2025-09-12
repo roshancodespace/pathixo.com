@@ -5,7 +5,7 @@ import { Code, Smartphone, Zap } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-black border-t border-gray-800 z-[100] relative">
+    <footer className="bg-black border-t border-gray-800">
       <div className="container mx-auto px-6 py-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
