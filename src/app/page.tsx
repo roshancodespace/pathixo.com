@@ -1,7 +1,5 @@
 "use client"
-import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
-import GradualBlurMemo from "@/components/GradualBlur";
 import { Hero } from "@/components/hero";
 import { ScrollProgress } from "@/components/magicui/scroll-progress";
 import { Problems } from "@/components/problems";
