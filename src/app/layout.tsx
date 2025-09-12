@@ -1,11 +1,24 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Figtree, Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
-import { Navigation } from "@/components/navigation";
+import Navigation from "@/components/navigation";
 
-const monstserrat = Montserrat({
-  subsets: ['latin']
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-montserrat',
 })
+
+const figtree = Figtree({
+  subsets: ['latin'],
+  weight: ['400', '700']
+})
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-poppins',
+});
 
 export const metadata: Metadata = {
   title: "Pathixo - Web Development, Android & SEO Services",
@@ -62,9 +75,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark">
       <body
-        className={`${monstserrat.className} antialiased`}
+        className={`${figtree.className} ${poppins.variable} ${montserrat.variable} bg-[#060016] text-white min-h-screen max-w-screen overflow-x-hidden`}
       >
         <Navigation />
         {children}

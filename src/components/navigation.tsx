@@ -1,62 +1,25 @@
-"use client"
+import React from 'react'
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-
-export function Navigation() {
-    const [isScrolled, setIsScrolled] = useState(false)
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50)
-        }
-
-        window.addEventListener("scroll", handleScroll)
-        return () => window.removeEventListener("scroll", handleScroll)
-    }, [])
-
+function Navigation() {
     return (
-        <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/80 backdrop-blur-md shadow-2xs" : "bg-transparent"
-                }`}
-        >
-            <div className="max-w-7xl mx-auto px-6 py-4">
-                <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                        <div className="w-8 h-8 bg-gradient-to-r from-red-500 via-orange-500 to-red-500 rounded-lg flex items-center justify-center">
-                            <span className="text-primary-foreground font-bold text-lg">P</span>
-                        </div>
-                        <span
-                            className={`text-xl font-semibold transition-colors text-foreground`}
-                        >
-                            Pathixo
-                        </span>
+        <nav className='max-w-4xl h-[100px] fixed left-0 right-0 px-3 mx-auto top-2 md:top-4 z-50'>
+            <div className='rounded-full backdrop-blur-sm flex justify-between items-center  shadow-[0px_0px_0px_0.5px_#2d3748] bg-[#ffffff06] px-5 py-4 mt-2'>
+                <div className='flex items-center'>
+                    <div className='bg-white text-black rounded-lg p-3 size-8 flex items-center justify-center font-bold text-2xl' style={{fontFamily: "var(--font-marck)"}}>
+                        P
                     </div>
-
-                    <div className="hidden md:flex items-center space-x-8">
-                        <a
-                            href="#services"
-                            className={`transition-colors`}
-                        >
-                            Services
-                        </a>
-                        <a
-                            href="#team"
-                            className={`transition-colors`}
-                        >
-                            Team
-                        </a>
-                        <a
-                            href="#contact"
-                            className={`transition-colors`}
-                        >
-                            Contact
-                        </a>
-                    </div>
-
-                    <Button className="bg-red-500 hover:bg-primary/90 text-primary-foreground">Get Started</Button>
+                    <h1 className='text-2xl ml-1' style={{fontFamily: "var(--font-marck)"}}>athixo</h1>
                 </div>
+                <ul className='hidden md:flex'>
+                    <li className='inline-block mx-4 cursor-pointer hover:underline'>Home</li>
+                    <li className='inline-block mx-4 cursor-pointer hover:underline'>Services</li>
+                    <li className='inline-block mx-4 cursor-pointer hover:underline'>Portfolio</li>
+                    <li className='inline-block mx-4 cursor-pointer hover:underline'>About</li>
+                    <li className='inline-block mx-4 cursor-pointer hover:underline'>Contact</li>
+                </ul>
             </div>
         </nav>
     )
 }
+
+export default Navigation
