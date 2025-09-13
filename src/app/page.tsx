@@ -1,10 +1,13 @@
 "use client"
+import Beams from "@/components/Beams";
 import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
 import LogoLoop from "@/components/LogoLoop";
 import { ScrollProgress } from "@/components/magicui/scroll-progress";
 import { Problems } from "@/components/problems";
 import Services from "@/components/services";
+import Testimonials from "@/components/testimonials";
+
 import {
   SiNextdotjs,
   SiReact,
@@ -56,23 +59,11 @@ export default function Home() {
   return (
     <>
       <div className="relative">
-        {/* <section className="w-screen left-0 z-50 -bottom-2 overflow-hidden fixed right-0">
-          <GradualBlurMemo
-            target="parent"
-            position="bottom"
-            height="8rem"
-            strength={2}
-            divCount={5}
-            curve="bezier"
-            exponential={true}
-            opacity={1}
-          />
-        </section> */}
         <Hero />
-        <div className="rounded-t-[2.5em] bg-[#060016] -mt-[2rem]">
+        <div className="rounded-t-[2.5em] bg-zinc-950 -mt-[2rem]">
           <Problems />
         </div>
-        <LogoLoop
+        {/* <LogoLoop
           logos={techLogos}
           speed={120}
           direction="left"
@@ -81,12 +72,18 @@ export default function Home() {
           pauseOnHover
           scaleOnHover
           fadeOut
-          fadeOutColor="#060016"
+          fadeOutColor="#09090b"
           ariaLabel="Technology partners"
-        />
-        <div className="w-screen flex justify-center">
+          className="bg-zinc-950 h-[10vw]"
+        /> */}
+        <div className="w-screen relative flex justify-center bg-zinc-950">
+          {/* <div className="absolute left-0 top-0 w-screen bottom-0 z-0">
+           
+          </div> */}
           <Services />
         </div>
+        {/* <WhyChooseUsPage/> */}
+        <Testimonials />
       </div>
       <Footer />
       <ScrollProgress className="top-[1px] h-[2px]" />
