@@ -1,5 +1,4 @@
 "use client"
-import Beams from "@/components/Beams";
 import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
 import LogoLoop from "@/components/LogoLoop";
@@ -63,7 +62,7 @@ export default function Home() {
         <div className="rounded-t-[2.5em] bg-zinc-950 -mt-[2rem]">
           <Problems />
         </div>
-        {/* <LogoLoop
+        <LogoLoop
           logos={techLogos}
           speed={120}
           direction="left"
@@ -75,7 +74,7 @@ export default function Home() {
           fadeOutColor="#09090b"
           ariaLabel="Technology partners"
           className="bg-zinc-950 h-[10vw]"
-        /> */}
+        />
         <div className="w-screen relative flex justify-center bg-zinc-950">
           {/* <div className="absolute left-0 top-0 w-screen bottom-0 z-0">
            
