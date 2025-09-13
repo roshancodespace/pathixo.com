@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion"
+import { motion, useScroll, useTransform, MotionValue } from "motion/react"
 import { useRef } from "react"
 
 const steps = [
@@ -261,7 +261,7 @@ export default function HowItWorksPage() {
             Ready to get started?
           </h3>
           <p className="text-gray-400 mb-8 max-w-md mx-auto">
-            Let's discuss your project and bring your ideas to life
+            Let&apos;s discuss your project and bring your ideas to life
           </p>
           <motion.button
             whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(147, 51, 234, 0.3)" }}

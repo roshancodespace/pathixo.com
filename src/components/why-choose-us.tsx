@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import { Shield, Zap, Users, Cpu } from "lucide-react"
 
 const differentiators = [
