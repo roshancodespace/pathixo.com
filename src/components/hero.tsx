@@ -1,17 +1,17 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 
-import GradientBlinds from "./backgrounds/gradient-blinds"
 import RotatingText from "./RotatingText"
 
 
 export function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-            <div className="absolute inset-0 w-screen -z-10 pointer-events-none">
-                <GradientBlinds
+        <section className="fixed top-0 z-0 w-screen min-h-screen flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0 w-screen h-screen -z-10 pointer-events-none">
+                {/* <GradientBlinds
                     gradientColors={['#FF9FFC', '#5227FF']}
                     angle={0}
-                    noise={0.3}
+                    noise={0}
                     blindCount={1}
                     blindMinWidth={10}
                     spotlightRadius={0.5}
@@ -21,7 +21,9 @@ export function Hero() {
                     distortAmount={0}
                     shineDirection="left"
                     mixBlendMode="lighten"
-                />
+                /> */}
+                <img src="/lb-noise.webp" alt="" className="max-md:hidden object-cover w-full bg-no-repeat h-full"/>
+                <img src="/mb-noise.webp" alt="" className="md:hidden object-cover w-full bg-no-repeat h-full"/>
             </div>
             <div className="flex flex-col items-center justify-center text-center px-4 transition-all">
                 <h1 className="text-[3rem] md:text-[5rem] font-bold leading-none text-center mb-6">

@@ -1,4 +1,5 @@
 "use client"
+import ContactUs from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
 import LogoLoop from "@/components/LogoLoop";
@@ -6,6 +7,7 @@ import { ScrollProgress } from "@/components/magicui/scroll-progress";
 import { Problems } from "@/components/problems";
 import Services from "@/components/services";
 import Testimonials from "@/components/testimonials";
+import WhyChooseUs from "@/components/why-choose-us";
 
 import {
   SiNextdotjs,
@@ -59,33 +61,39 @@ export default function Home() {
     <>
       <div className="relative">
         <Hero />
-        <div className="rounded-t-[2.5em] bg-zinc-950 -mt-[2rem]">
-          <Problems />
+        <div className="w-screen h-screen"></div>
+        <div className="relative z-10">
+          <div className="rounded-t-[2.5em] bg-zinc-950 -mt-[2rem]">
+            <Problems />
+            <LogoLoop
+              logos={techLogos}
+              speed={120}
+              direction="left"
+              logoHeight={48}
+              gap={40}
+              pauseOnHover
+              scaleOnHover
+              fadeOut
+              fadeOutColor="#09090b"
+              ariaLabel="Technology partners"
+              className="h-[10vh]"
+            />
+            <div className="w-screen relative flex justify-center bg-zinc-950">
+              {/* Background gradients */}
+              {/* <div className="absolute inset-0 ">
+                <div className="absolute top-20 left-1/3 w-[500px] h-[500px] bg-purple-700/10 blur-[200px] rotate-12" />
+                <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-blue-600/10 blur-[180px] -rotate-6" />
+              </div> */}
+              <Services />
+            </div>
+            <WhyChooseUs />
+            <Testimonials />
+            <ContactUs/>
+            <Footer />
+          </div>
         </div>
-        <LogoLoop
-          logos={techLogos}
-          speed={120}
-          direction="left"
-          logoHeight={48}
-          gap={40}
-          pauseOnHover
-          scaleOnHover
-          fadeOut
-          fadeOutColor="#09090b"
-          ariaLabel="Technology partners"
-          className="bg-zinc-950 h-[10vw]"
-        />
-        <div className="w-screen relative flex justify-center bg-zinc-950">
-          {/* <div className="absolute left-0 top-0 w-screen bottom-0 z-0">
-           
-          </div> */}
-          <Services />
-        </div>
-        {/* <WhyChooseUsPage/> */}
-        <Testimonials />
+        <ScrollProgress className="top-[1px] h-[2px]" />
       </div>
-      <Footer />
-      <ScrollProgress className="top-[1px] h-[2px]" />
     </>
   );
 }

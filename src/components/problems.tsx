@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 
 export function Problems() {
   return (
-    <section className="h-[105vh] w-screen flex items-center">
+    <section className="min-h-[105vh] w-screen flex items-center">
       <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         
         {/* Left column: problem + solution framing */}

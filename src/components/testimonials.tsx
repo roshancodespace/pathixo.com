@@ -84,7 +84,7 @@ const Testimonials = () => {
                     ],
                 } as COBEOptions} className='top-70 z-0' />
             </div>
-            <div className='bg-black/50 relative z-[100]'>
+            <div className='bg-black relative z-[100]'>
                 <ScrollVelocityContainer>
                     <ScrollVelocityRow direction={1} baseVelocity={2}>
                         {
