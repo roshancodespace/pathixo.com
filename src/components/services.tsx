@@ -40,18 +40,25 @@ const services = [
   },
 ]
 
-
 function Services() {
   const [selectedService, setSelectedService] = useState<null | typeof services[0]>(null)
   return (
-    <section className='min-h-screen relative z-[1] max-w-7xl py-20 px-4 space-y-12 w-full' id='services'>
+    <section
+      className="min-h-screen relative z-[1] max-w-7xl py-20 px-4 space-y-12 w-full"
+      id="services"
+    >
       <div>
-        <h4 className='font-semibold'>OUR SERVICES</h4>
-        <div className='grid md:grid-cols-2 gap-5 items-center'>
+        <h4 className="font-semibold text-purple-400">OUR SERVICES</h4>
+        <div className="grid md:grid-cols-2 gap-5 items-center">
           <BoxReveal>
-            <h1 className='text-3xl font-bold md:text-5xl leading-none'>
+            <h1 className="text-3xl font-bold md:text-5xl leading-none">
               What
-              <LineShadowText shadowColor="#ffffff" className='inline-block mx-4 italic'>Services</LineShadowText>
+              <LineShadowText
+                shadowColor="#a855f7"
+                className="inline-block mx-4 italic text-purple-400"
+              >
+                Services
+              </LineShadowText>
               <br />
               Do We Offer
               <motion.span
@@ -63,15 +70,17 @@ function Services() {
                   duration: 1.2,         // speed of each swing
                   ease: "easeInOut",     // smooth easing
                 }}
-                className="inline-block ml-2"
+                className="inline-block ml-2 text-purple-400"
               >
                 ?
               </motion.span>
             </h1>
           </BoxReveal>
-          <div className='w-full'>
+          <div className="w-full text-zinc-300">
             <TextType
-              text={[`Our team blends cutting-edge technology with sleek design to deliver solutions that are not only reliable but also remarkable. Whether it’s launching your first product or optimizing enterprise systems, we help you stay ahead of the curve`]}
+              text={[
+                `Our team blends cutting-edge technology with sleek design to deliver solutions that are not only reliable but also remarkable. Whether it’s launching your first product or optimizing enterprise systems, we help you stay ahead of the curve`,
+              ]}
               typingSpeed={35}
               pauseDuration={1500}
               showCursor={true}
@@ -85,18 +94,18 @@ function Services() {
           <div
             key={service.title}
             onClick={() => setSelectedService(service)}
-            className="flex justify-between cursor-pointer items-center py-5 h-[6.5em] font-medium border-b border-white group hover:bg-white transition-all hover:px-5 md:hover:px-10"
+            className="flex justify-between cursor-pointer items-center py-5 h-[6.5em] font-medium border-b border-zinc-800 group hover:bg-purple-500/10 transition-all hover:px-5 md:hover:px-10"
           >
-            <h1 className="text-2xl flex items-end gap-2 md:text-4xl lg:text-5xl cursor-pointer transition-all group-hover:text-black group-hover:text-3xl md:group-hover:text-5xl lg:group-hover:text-6xl">
+            <h1 className="text-2xl flex items-end gap-2 md:text-4xl lg:text-5xl cursor-pointer transition-all group-hover:text-purple-400 group-hover:text-3xl md:group-hover:text-5xl lg:group-hover:text-6xl">
               {service.title}
-              <div className='size-3 bg-[#ff44f9] transition-opacity mb-[3px] opacity-0 group-hover:opacity-100'></div>
+              <div className="size-3 bg-purple-400 transition-opacity mb-[3px] opacity-0 group-hover:opacity-100"></div>
             </h1>
-            <div className="rounded-full border-2 group-hover:border-black p-3 transition-all group-hover:translate-x-2">
+            <div className="rounded-full border-2 border-zinc-700 group-hover:border-purple-400 p-3 transition-all group-hover:translate-x-2">
               <motion.div
                 animate={{ x: [0, 2, 0] }}
                 transition={{ repeat: Infinity, duration: 0.8, ease: "easeInOut" }}
               >
-                <ArrowRight className="w-6 h-6" />
+                <ArrowRight className="w-6 h-6 text-purple-400" />
               </motion.div>
             </div>
           </div>

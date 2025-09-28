@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "motion/react"
 import { X } from "lucide-react"
 import { createPortal } from "react-dom"
 import { useState, useEffect } from "react"
+import Link from "next/link"
 
 interface ServiceModalProps {
   isOpen: boolean
@@ -82,13 +83,15 @@ export default function ServiceModal({
           <p className="mb-8 text-gray-300 leading-relaxed">{description}</p>
 
           {/* CTA button */}
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="w-full md:w-auto bg-gradient-to-r cursor-pointer from-purple-500 to-blue-600 px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 text-white"
-          >
-            Get Started
-          </motion.button>
+          <Link href='#contact'>
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="w-full md:w-auto bg-gradient-to-r cursor-pointer from-purple-500 to-blue-600 px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 text-white"
+            >
+
+            </motion.button>
+          </Link>
         </motion.div>
       </motion.div>
     </AnimatePresence>,

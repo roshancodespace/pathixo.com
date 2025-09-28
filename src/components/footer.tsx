@@ -1,87 +1,74 @@
-"use client"
+"use client";
 
-import { motion } from "motion/react"
-import { Code, Smartphone, Zap } from "lucide-react"
+import { motion } from "motion/react";
+import { Linkedin, Github, Twitter, Mail } from "lucide-react";
+
+const socialLinks = [
+  { icon: Linkedin, url: "#", label: "LinkedIn" },
+  { icon: Github, url: "#", label: "GitHub" },
+  { icon: Twitter, url: "#", label: "Twitter" },
+  { icon: Mail, url: "mailto:nitishpandit921@gmail.com", label: "Email" },
+];
 
 export function Footer() {
   return (
-    <footer className="relative bg-black z-10 border-t border-zinc-800">
-      <div className="container mx-auto px-6 py-16">
+    <footer className="relative border-t border-zinc-800 z-10 pt-24 sm:pt-32 pb-8">
+      <div className="container mx-auto px-6">
+        {/* Main CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-4 gap-8"
+          className="flex flex-col items-center text-center"
         >
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <h3 className="text-3xl font-bold text-white mb-6 font-mono">
-              <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
-                Pathixo
-              </span>
-            </h3>
-            <p className="text-gray-400 mb-8 leading-relaxed font-light max-w-md">
-              Professional web and mobile development solutions for modern businesses.
-            </p>
-
-            <div className="flex flex-wrap gap-6">
-              <motion.div className="flex items-center gap-2 text-gray-400 hover:text-purple-400 transition-colors">
-                <Code className="w-4 h-4 text-purple-400" />
-                <span className="text-sm font-medium">Next.js</span>
-              </motion.div>
-              <motion.div className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors">
-                <Smartphone className="w-4 h-4 text-blue-400" />
-                <span className="text-sm font-medium">Flutter</span>
-              </motion.div>
-              <motion.div className="flex items-center gap-2 text-gray-400 hover:text-purple-300 transition-colors">
-                <Zap className="w-4 h-4 text-purple-300" />
-                <span className="text-sm font-medium">SEO Optimized</span>
-              </motion.div>
-            </div>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-white font-semibold mb-6 relative after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-gradient-to-r from-purple-400 to-blue-500 after:transition-all after:duration-500 hover:after:w-full">
-              Services
-            </h4>
-            <ul className="space-y-3 text-gray-400 font-light">
-              {["Web Development", "Mobile Apps", "SEO Optimization", "UI/UX Design", "Backend Development"].map((item, idx) => (
-                <li
-                  key={idx}
-                  className="hover:text-white hover:translate-x-1 transition-all duration-200 cursor-pointer"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-white font-semibold mb-6 relative after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-gradient-to-r from-purple-400 to-blue-500 after:transition-all after:duration-500 hover:after:w-full">
-              Contact
-            </h4>
-            <div className="space-y-3 text-gray-400 text-sm">
-              <p>Bokaro Steel City</p>
-              <p>+91 8877020121</p>
-              <p>nitishpandit921@gmail.com</p>
-            </div>
-          </div>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
+            Let's Build Something
+            <br />
+            <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">
+              Great Together
+            </span>
+          </h2>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
+            Have a project in mind or just want to chat? We're always excited to
+            hear about new ideas and challenges. Reach out and let's start the
+            conversation.
+          </p>
+          <a
+            href="#contact"
+            className="mt-10 inline-flex items-center justify-center gap-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-purple-500/30"
+          >
+            Get a Free Quote
+          </a>
         </motion.div>
 
-        {/* Bottom copyright */}
+        {/* Bottom Bar: Copyright & Socials */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="border-t border-zinc-800 mt-16 pt-8 text-center"
+          className="border-t border-zinc-800 mt-24 pt-8 flex flex-col sm:flex-row justify-between items-center gap-6"
         >
-          <p className="text-gray-500 font-light">© 2025 Pathixo. All rights reserved.</p>
+          <p className="text-zinc-500 text-sm">
+            © {new Date().getFullYear()} Pathixo. All rights reserved.
+          </p>
+          <div className="flex gap-5">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-500 hover:text-purple-400 transition-colors"
+                aria-label={link.label}
+              >
+                <link.icon className="w-5 h-5" />
+              </a>
+            ))}
+          </div>
         </motion.div>
       </div>
     </footer>
-  )
+  );
 }

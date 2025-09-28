@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import ContactUs from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
@@ -6,6 +7,7 @@ import LogoLoop from "@/components/LogoLoop";
 import { ScrollProgress } from "@/components/magicui/scroll-progress";
 import { Problems } from "@/components/problems";
 import Services from "@/components/services";
+import MeetTheTeam from "@/components/team";
 import Testimonials from "@/components/testimonials";
 import WhyChooseUs from "@/components/why-choose-us";
 
@@ -30,7 +32,7 @@ import {
   SiGithub,
   SiJest,
   SiFigma,
-} from "react-icons/si"
+} from "react-icons/si";
 
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -53,47 +55,60 @@ const techLogos = [
   { node: <SiGithub />, title: "GitHub", href: "https://github.com" },
   { node: <SiJest />, title: "Jest", href: "https://jestjs.io" },
   { node: <SiFigma />, title: "Figma", href: "https://figma.com" },
-]
-
+];
 
 export default function Home() {
   return (
-    <>
-      <div className="relative">
-        <Hero />
-        <div className="w-screen h-screen"></div>
-        <div className="relative z-10">
-          <div className="rounded-t-[2.5em] bg-zinc-950 -mt-[2rem]">
-            <Problems />
-            <LogoLoop
-              logos={techLogos}
-              speed={120}
-              direction="left"
-              logoHeight={48}
-              gap={40}
-              pauseOnHover
-              scaleOnHover
-              fadeOut
-              fadeOutColor="#09090b"
-              ariaLabel="Technology partners"
-              className="h-[10vh]"
-            />
-            <div className="w-screen relative flex justify-center bg-zinc-950">
-              {/* Background gradients */}
-              {/* <div className="absolute inset-0 ">
-                <div className="absolute top-20 left-1/3 w-[500px] h-[500px] bg-purple-700/10 blur-[200px] rotate-12" />
-                <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-blue-600/10 blur-[180px] -rotate-6" />
-              </div> */}
-              <Services />
-            </div>
-            <WhyChooseUs />
-            <Testimonials />
-            <ContactUs/>
-            <Footer />
+    <div className="relative bg-zinc-950 text-white">
+      <Hero />
+
+      {/* Spacer so hero doesn't crash into next */}
+      <div className="w-screen h-screen" />
+
+      <div className="relative z-10">
+        <div className="rounded-t-[2.5em] bg-zinc-950 -mt-[2rem]">
+          {/* Problems Section */}
+          <Problems />
+
+          {/* Tech Logos Loop */}
+          <LogoLoop
+            logos={techLogos}
+            speed={120}
+            direction="left"
+            logoHeight={48}
+            gap={40}
+            pauseOnHover
+            scaleOnHover
+            fadeOut
+            fadeOutColor="#09090b"
+            ariaLabel="Technology partners"
+            className="h-[10vh]"
+          />
+
+          {/* Services Section */}
+          <div className="w-screen relative flex justify-center bg-zinc-950">
+            <Services />
           </div>
+
+          {/* Why Choose Us */}
+          <WhyChooseUs />
+
+          {/* Team */}
+          <MeetTheTeam />
+
+          {/* Testimonials */}
+          <Testimonials />
+
+          {/* Contact */}
+          <ContactUs />
+
+          {/* Footer */}
+          <Footer />
         </div>
-        <ScrollProgress className="top-[1px] h-[2px]" />
       </div>
-    </>
+
+      {/* Scroll Progress Bar */}
+      <ScrollProgress className="top-[1px] h-[2px] bg-purple-500" />
+    </div>
   );
 }

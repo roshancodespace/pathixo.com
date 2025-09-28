@@ -1,8 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
 "use client"
 
-import { motion } from "motion/react"
-import { Linkedin, Facebook, Instagram, Mail } from "lucide-react"
+import { Linkedin, Github, Mail } from "lucide-react"
 
 const team = [
   {
@@ -10,100 +8,97 @@ const team = [
     role: "Founder & AI/ML Engineer",
     description: "Leading AI/ML innovations and strategic vision for cutting-edge solutions.",
     image: "/tripathi.png",
+    socials: [
+      { icon: Linkedin, url: "#", label: "LinkedIn" },
+      { icon: Mail, url: "mailto:ayush@pathixo.com", label: "Email" },
+    ],
   },
   {
     name: "Nitish Pandit",
     role: "Co-founder",
     description: "Driving business growth and client relationships with strategic expertise.",
     image: "/nitish.png",
+    socials: [
+      { icon: Linkedin, url: "#", label: "LinkedIn" },
+      { icon: Mail, url: "mailto:nitish@pathixo.com", label: "Email" },
+    ],
   },
   {
     name: "Roshan Kumar",
-    role: "CTO & Full Stack Developer",
+    role: "Co-founder & CTO",
     description: "Expert in JavaScript, TypeScript, React/Next.js, Flutter, and scalable architecture.",
     image: "/roshan.png",
+    socials: [
+      { icon: Linkedin, url: "#", label: "LinkedIn" },
+      { icon: Github, url: "#", label: "GitHub" },
+      { icon: Mail, url: "mailto:roshan@pathixo.com", label: "Email" },
+    ],
+  },
+  {
+    name: "Abhijeet Jha",
+    role: "AI/ML Engineer",
+    description: "Pioneering intelligent systems and machine learning algorithms to solve complex challenges.",
+    image: "/abhijeet.png",
+    socials: [
+      { icon: Linkedin, url: "#", label: "LinkedIn" },
+      { icon: Github, url: "#", label: "GitHub" },
+      { icon: Mail, url: "mailto:abhijeet@pathixo.com", label: "Email" },
+    ],
   },
 ]
 
-const companySocials = [
-  { icon: Linkedin, url: "https://www.linkedin.com/in/nitish-kumar-42aa0626a", label: "LinkedIn" },
-  { icon: Facebook, url: "https://www.facebook.com/sushil.sushilkumar.18294", label: "Facebook" },
-  { icon: Instagram, url: "https://www.instagram.com/nitishpandit___32", label: "Instagram" },
-  { icon: Mail, url: "mailto:nitishpandit921@gmail.com", label: "Email" },
-]
-
-export function Team() {
+export default function MeetTheTeam() {
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-background/95" id="team">
-      <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
-            Meet Our <span className="text-primary">Team</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Passionate developers and innovators dedicated to creating exceptional digital experiences
-          </p>
-        </motion.div>
+    <section className="relative flex flex-col justify-center min-h-screen py-20 md:py-28 text-white">
+      {/* Background decorations */}
+      {/* <div className="absolute inset-0 bg-dot-white/[0.07] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+      <div className="absolute top-0 inset-x-0 h-[30rem] bg-[radial-gradient(ellipse_80%_100%_at_50%_-20%,rgba(147,51,234,0.25)_0%,rgba(79,70,229,0)_100%)]" /> */}
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {team.map((member, index) => (
-            <motion.div
+      <div className="container mx-auto px-4 text-center relative z-10">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent">
+          Meet The Minds Behind The Mission
+        </h2>
+        <p className="text-zinc-400 max-w-2xl mx-auto mb-16 text-lg">
+          A synergy of innovation, expertise, and passion, driving the future of technology.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {team.map((member) => (
+            <div
               key={member.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group relative"
+              className="group relative flex flex-col items-center p-6 bg-zinc-950/60 backdrop-blur-sm rounded-2xl border border-zinc-800 transition-all duration-300 hover:border-transparent hover:bg-zinc-900/80 hover:shadow-2xl hover:shadow-purple-500/10"
             >
-              <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 hover:bg-card/80 transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5">
-                <div className="text-center">
-                  <div className="relative mb-6 mx-auto w-32 h-32">
-                    <img
-                      src={member.image || "/placeholder.svg?height=128&width=128"}
-                      alt={member.name}
-                      className="w-full h-full rounded-2xl object-cover border-2 border-border group-hover:border-primary/30 transition-colors duration-300"
-                    />
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-
-                  <h3 className="text-xl font-semibold text-foreground mb-2">{member.name}</h3>
-                  <p className="text-primary font-medium mb-4 text-sm">{member.role}</p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{member.description}</p>
-                </div>
+              <div className="mb-5 p-[2px] rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 group-hover:scale-105 transition-transform duration-300">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-28 h-28 rounded-full object-cover border-4 border-zinc-950"
+                />
               </div>
-            </motion.div>
+
+              <h3 className="text-xl font-bold text-zinc-100">{member.name}</h3>
+              <p className="font-medium bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent mb-3">
+                {member.role}
+              </p>
+              <p className="text-zinc-500 text-sm mb-6 flex-grow">{member.description}</p>
+
+              <div className="flex gap-4">
+                {member.socials.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-zinc-500 hover:text-purple-400 hover:scale-110 transition-all duration-200"
+                    aria-label={social.label}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </a>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <h3 className="text-xl font-semibold text-foreground mb-6">Connect With Pathixo</h3>
-          <div className="flex justify-center gap-4">
-            {companySocials.map((social, index) => (
-              <a
-                key={index}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-xl bg-card/50 border border-border flex items-center justify-center hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 group"
-                aria-label={social.label}
-              >
-                <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
-              </a>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   )

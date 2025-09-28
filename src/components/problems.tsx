@@ -16,7 +16,7 @@ export function Problems() {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="text-2xl font-bold"
+            className="text-2xl font-bold text-white"
           >
             Why most businesses struggle with tech delivery
           </motion.h3>
@@ -26,7 +26,7 @@ export function Problems() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.08, duration: 0.45 }}
-            className="mt-4 text-slate-600 max-w-lg"
+            className="mt-4 text-zinc-400 max-w-lg"
           >
             Juggling multiple vendors, outdated infrastructure, and slow release 
             cycles eats away at growth. Teams lose focus on the actual product 
@@ -41,26 +41,26 @@ export function Problems() {
             className="mt-6 space-y-4"
           >
             <div className="flex items-start gap-3">
-              <div className="w-9 h-9 rounded-full bg-indigo-50 flex items-center justify-center font-semibold text-black">1</div>
+              <div className="w-9 h-9 rounded-full bg-purple-500/20 border border-purple-500/40 flex items-center justify-center font-semibold text-purple-400">1</div>
               <div>
-                <div className="font-semibold">One trusted partner</div>
-                <div className="text-sm text-slate-500">Web, mobile, and cloud — handled under one roof.</div>
+                <div className="font-semibold text-white">One trusted partner</div>
+                <div className="text-sm text-zinc-400">Web, mobile, and cloud — handled under one roof.</div>
               </div>
             </div>
 
             <div className="flex items-start gap-3">
-              <div className="w-9 h-9 rounded-full bg-emerald-50 flex items-center justify-center font-semibold text-black">2</div>
+              <div className="w-9 h-9 rounded-full bg-purple-500/20 border border-purple-500/40 flex items-center justify-center font-semibold text-purple-400">2</div>
               <div>
-                <div className="font-semibold">Launch without delays</div>
-                <div className="text-sm text-slate-500">Battle-tested stacks and delivery pipelines for faster time to market.</div>
+                <div className="font-semibold text-white">Launch without delays</div>
+                <div className="text-sm text-zinc-400">Battle-tested stacks and delivery pipelines for faster time to market.</div>
               </div>
             </div>
 
             <div className="flex items-start gap-3">
-              <div className="w-9 h-9 rounded-full bg-rose-50 flex items-center justify-center font-semibold text-black">3</div>
+              <div className="w-9 h-9 rounded-full bg-purple-500/20 border border-purple-500/40 flex items-center justify-center font-semibold text-purple-400">3</div>
               <div>
-                <div className="font-semibold">Scale with confidence</div>
-                <div className="text-sm text-slate-500">Cloud-native patterns, monitoring, and SLAs that keep systems reliable.</div>
+                <div className="font-semibold text-white">Scale with confidence</div>
+                <div className="text-sm text-zinc-400">Cloud-native patterns, monitoring, and SLAs that keep systems reliable.</div>
               </div>
             </div>
           </motion.div>
@@ -73,16 +73,16 @@ export function Problems() {
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="rounded-xl p-6 bg-gradient-to-br from-slate-50 to-white border border-slate-100 shadow-sm h-full"
+            className="rounded-xl p-6 bg-zinc-950/60 backdrop-blur-sm border border-zinc-800 hover:border-purple-500/30 hover:shadow-lg hover:shadow-purple-500/10 h-full transition-colors duration-300"
           >
-            <h4 className="font-semibold">Our approach</h4>
-            <p className="mt-2 text-sm text-slate-600">
+            <h4 className="font-semibold text-purple-400">Our approach</h4>
+            <p className="mt-2 text-sm text-zinc-400">
               We don’t just build and leave — we act as your long-term engineering partner,
               owning delivery pipelines, infrastructure, and reliability so your team
               can focus on what matters: the product.
             </p>
 
-            <ul className="mt-4 space-y-2 text-sm text-slate-600">
+            <ul className="mt-4 space-y-2 text-sm text-zinc-400">
               <li>• Tailored architecture & migration strategies</li>
               <li>• CI/CD automation and observability baked in</li>
               <li>• Security, compliance & best practices by default</li>
@@ -90,7 +90,10 @@ export function Problems() {
             </ul>
 
             <div className="mt-5">
-              <Button variant="default" onClick={() => alert('Contact sales')}>
+              <Button
+                className="bg-purple-500 hover:bg-purple-600 text-black font-semibold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105"
+                onClick={() => alert('Contact sales')}
+              >
                 Talk to an engineer
               </Button>
             </div>
