@@ -61,12 +61,12 @@ export default function Home() {
   return (
     <div className="relative bg-zinc-950 text-white">
       <Hero />
-
+      
       {/* Spacer so hero doesn't crash into next */}
       <div className="w-screen h-screen" />
 
-      <div className="relative z-10">
-        <div className="rounded-t-[2.5em] bg-zinc-950 -mt-[2rem]">
+      <div className="relative z-10 bg-zinc-950">
+        <div className="rounded-t-[2.5em] -mt-[2rem]">
           {/* Problems Section */}
           <Problems />
 
