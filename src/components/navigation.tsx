@@ -14,8 +14,8 @@ function Navigation() {
                 <div className='hidden md:flex'>
                     <Link href="/#home" className='inline-block mx-4 cursor-pointer hover:underline'>Home</Link>
                     <Link href="/#services" className='inline-block mx-4 cursor-pointer hover:underline'>Services</Link>
-                    <Link href="/#portfolio" className='inline-block mx-4 cursor-pointer hover:underline'>Portfolio</Link>
-                    <Link href="/#about" className='inline-block mx-4 cursor-pointer hover:underline'>About</Link>
+                    <Link href="/portfolio" className='inline-block mx-4 cursor-pointer hover:underline'>Portfolio</Link>
+                    <Link href="/about" className='inline-block mx-4 cursor-pointer hover:underline'>About</Link>
                     <Link href="/#contact" className='inline-block mx-4 cursor-pointer hover:underline'>Contact</Link>
                 </div>
             </div>

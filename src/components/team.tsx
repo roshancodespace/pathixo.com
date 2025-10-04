@@ -1,8 +1,32 @@
 "use client"
 
-import { Linkedin, Github, Mail } from "lucide-react"
+import { useState } from "react"
+import { motion, AnimatePresence } from "motion/react"
+import { Linkedin, Github, Mail, ArrowLeft, ArrowRight } from "lucide-react"
 
 const team = [
+  {
+    name: "Abhijeet Jha",
+    role: "AI/ML Engineer",
+    description: "Pioneering intelligent systems and machine learning algorithms to solve complex challenges.",
+    image: "/abhijeet.png",
+    socials: [
+      { icon: Linkedin, url: "#", label: "LinkedIn" },
+      { icon: Github, url: "https://github.com/jhaabhijeet864", label: "GitHub" },
+      { icon: Mail, url: "mailto:abhijeet@pathixo.com", label: "Email" },
+    ],
+  },
+  {
+    name: "Roshan Kumar",
+    role: "Co-founder & CTO",
+    description: "Expert in JavaScript, TypeScript, React/Next.js, Flutter, and scalable architecture.",
+    image: "/roshan.png",
+    socials: [
+      { icon: Linkedin, url: "#", label: "LinkedIn" },
+      { icon: Github, url: "https://github.com/roshancodespace", label: "GitHub" },
+      { icon: Mail, url: "mailto:roshan@pathixo.com", label: "Email" },
+    ],
+  },
   {
     name: "Ayush Tripathi",
     role: "Founder & AI/ML Engineer",
@@ -24,82 +48,115 @@ const team = [
     ],
   },
   {
-    name: "Roshan Kumar",
-    role: "Co-founder & CTO",
-    description: "Expert in JavaScript, TypeScript, React/Next.js, Flutter, and scalable architecture.",
-    image: "/roshan.png",
+    name: "Piyush Anand",
+    role: "Lead UI/UX Designer",
+    description: "Crafting intuitive and beautiful user experiences that bridge the gap between users and technology.",
+    image: "/piyush.png",
     socials: [
       { icon: Linkedin, url: "#", label: "LinkedIn" },
-      { icon: Github, url: "#", label: "GitHub" },
-      { icon: Mail, url: "mailto:roshan@pathixo.com", label: "Email" },
-    ],
-  },
-  {
-    name: "Abhijeet Jha",
-    role: "AI/ML Engineer",
-    description: "Pioneering intelligent systems and machine learning algorithms to solve complex challenges.",
-    image: "/abhijeet.png",
-    socials: [
-      { icon: Linkedin, url: "#", label: "LinkedIn" },
-      { icon: Github, url: "#", label: "GitHub" },
-      { icon: Mail, url: "mailto:abhijeet@pathixo.com", label: "Email" },
+      { icon: Mail, url: "mailto:piyush@pathixo.com", label: "Email" },
     ],
   },
 ]
 
 export default function MeetTheTeam() {
+  const [activeIndex, setActiveIndex] = useState(2);
+  const activeMember = team[activeIndex];
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + team.length) % team.length);
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % team.length);
+  };
+
   return (
-    <section className="relative flex flex-col justify-center min-h-screen py-20 md:py-28 text-white">
-      {/* Background decorations */}
-      {/* <div className="absolute inset-0 bg-dot-white/[0.07] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
-      <div className="absolute top-0 inset-x-0 h-[30rem] bg-[radial-gradient(ellipse_80%_100%_at_50%_-20%,rgba(147,51,234,0.25)_0%,rgba(79,70,229,0)_100%)]" /> */}
+    <section className="relative flex flex-col justify-center min-h-screen py-20 md:py-28 text-white bg-black">
+      <div className="absolute inset-0 bg-dot-white/[0.07] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
-      <div className="container mx-auto px-4 text-center relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent">
-          Meet The Minds Behind The Mission
-        </h2>
-        <p className="text-zinc-400 max-w-2xl mx-auto mb-16 text-lg">
-          A synergy of innovation, expertise, and passion, driving the future of technology.
-        </p>
+      <div className="max-w-7xl mx-auto px-4 w-full">
+        <div className="text-center mb-16">
+          <h2 className="text-sm uppercase tracking-widest text-zinc-400 mb-4">Team Section</h2>
+          <p className="text-4xl md:text-5xl font-bold">Meet the team</p>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {team.map((member) => (
-            <div
-              key={member.name}
-              className="group relative flex flex-col items-center p-6 bg-zinc-950/60 backdrop-blur-sm rounded-2xl border border-zinc-800 transition-all duration-300 hover:border-transparent hover:bg-zinc-900/80 hover:shadow-2xl hover:shadow-purple-500/10"
+        <div className="relative h-72 flex items-center justify-center">
+          {team.map((member, index) => {
+            let offset = index - activeIndex;
+            if (offset > team.length / 2) offset -= team.length;
+            if (offset < -team.length / 2) offset += team.length;
+
+            const isVisible = Math.abs(offset) <= 2;
+
+            return (
+              <motion.div
+                key={member.name}
+                className="absolute w-56 h-72 rounded-2xl overflow-hidden cursor-pointer"
+                initial="hidden"
+                whileHover="visible"
+                animate={{
+                  scale: isVisible ? (offset === 0 ? 1 : 0.8) : 0,
+                  x: `${offset * 220}px`, // Increased spacing for wider cards
+                  zIndex: team.length - Math.abs(offset),
+                  opacity: isVisible ? (offset === 0 ? 1 : 0.4) : 0,
+                  filter: offset === 0 ? "grayscale(0%)" : "grayscale(100%)",
+                }}
+                transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                onClick={() => setActiveIndex(index)}
+              >
+                <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4"
+                >
+                  <h3 className="text-lg font-bold text-white">{member.name}</h3>
+                  <p className="text-sm text-zinc-300">{member.role}</p>
+                </motion.div>
+              </motion.div>
+            )
+          })}
+        </div>
+
+        <div className="relative mt-12 flex flex-col items-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="text-center max-w-xl"
             >
-              <div className="mb-5 p-[2px] rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 group-hover:scale-105 transition-transform duration-300">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-28 h-28 rounded-full object-cover border-4 border-zinc-950"
-                />
-              </div>
-
-              <h3 className="text-xl font-bold text-zinc-100">{member.name}</h3>
-              <p className="font-medium bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent mb-3">
-                {member.role}
+              <p className="text-zinc-400 text-base leading-relaxed mb-6 min-h-[72px]">
+                {activeMember.description}
               </p>
-              <p className="text-zinc-500 text-sm mb-6 flex-grow">{member.description}</p>
-
-              <div className="flex gap-4">
-                {member.socials.map((social) => (
+              <div className="flex justify-center gap-4">
+                {activeMember.socials.map((social) => (
                   <a
                     key={social.label}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-500 hover:text-purple-400 hover:scale-110 transition-all duration-200"
+                    className="text-zinc-400 hover:text-purple-400 hover:scale-110 transition-colors"
                     aria-label={social.label}
                   >
                     <social.icon className="w-5 h-5" />
                   </a>
                 ))}
               </div>
-            </div>
-          ))}
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="mt-8 flex gap-6">
+            <button onClick={handlePrev} className="p-2 rounded-full border border-zinc-700 text-zinc-400 hover:bg-zinc-800 transition-all">
+              <ArrowLeft />
+            </button>
+            <button onClick={handleNext} className="p-2 rounded-full border border-zinc-700 text-zinc-400 hover:bg-zinc-800 transition-all">
+              <ArrowRight />
+            </button>
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

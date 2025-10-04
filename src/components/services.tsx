@@ -1,11 +1,13 @@
 "use client"
+
 import { ArrowRight } from 'lucide-react'
 import React, { useState } from 'react'
-import ServiceModal from './service-modal'
+import Link from 'next/link'
 import { BoxReveal } from './magicui/box-reveal'
 import { LineShadowText } from './magicui/line-shadow-text'
 import TextType from './TextType'
-import { motion } from 'motion/react'
+import { motion } from 'motion/react' // Corrected import
+import Modal from './modal'
 
 const services = [
   {
@@ -42,9 +44,10 @@ const services = [
 
 function Services() {
   const [selectedService, setSelectedService] = useState<null | typeof services[0]>(null)
+  
   return (
     <section
-      className="min-h-screen relative z-[1] max-w-7xl py-20 px-4 space-y-12 w-full"
+      className="min-h-screen relative z-[1] max-w-7xl py-20 px-4 space-y-12 w-full mx-auto"
       id="services"
     >
       <div>
@@ -65,10 +68,10 @@ function Services() {
                 initial={{ rotateZ: 20, x: 5, skewX: 5 }}
                 animate={{ rotateZ: -20, x: 0, skewX: -5 }}
                 transition={{
-                  repeat: Infinity,      // infinite loop
-                  repeatType: "reverse", // go back and forth
-                  duration: 1.2,         // speed of each swing
-                  ease: "easeInOut",     // smooth easing
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  duration: 1.2,
+                  ease: "easeInOut",
                 }}
                 className="inline-block ml-2 text-purple-400"
               >
@@ -89,6 +92,7 @@ function Services() {
           </div>
         </div>
       </div>
+      
       <div>
         {services.map((service) => (
           <div
@@ -111,14 +115,28 @@ function Services() {
           </div>
         ))}
       </div>
-      {selectedService && (
-        <ServiceModal
-          isOpen={!!selectedService}
-          onClose={() => setSelectedService(null)}
-          title={selectedService.title}
-          description={selectedService.description}
-        />
-      )}
+
+      {/* Correctly using the reusable Modal component */}
+      <Modal isOpen={!!selectedService} onClose={() => setSelectedService(null)}>
+        {selectedService && (
+          <div>
+            <div className="mb-6">
+              <div className="h-1 w-16 bg-gradient-to-r from-purple-400 to-blue-500 rounded-full mb-4" />
+              <h2 className="text-3xl md:text-4xl font-bold">{selectedService.title}</h2>
+            </div>
+            <p className="mb-8 text-gray-300 leading-relaxed">{selectedService.description}</p>
+            <Link href="#contact" onClick={() => setSelectedService(null)}>
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="w-full bg-gradient-to-r cursor-pointer from-purple-500 to-blue-600 px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-purple-500/20 transition-all duration-300 text-white"
+              >
+                Start a Project With Us
+              </motion.button>
+            </Link>
+          </div>
+        )}
+      </Modal>
     </section>
   )
 }
