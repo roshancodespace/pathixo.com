@@ -65,7 +65,7 @@ export default function Home() {
       {/* Spacer so hero doesn't crash into next */}
       <div className="w-screen h-screen" />
 
-      <div className="relative z-10 bg-zinc-950">
+      <div className="relative z-10 bg-zinc-950 rounded-t-[10em]">
         <div className="rounded-t-[2.5em] -mt-[2rem]">
           {/* Problems Section */}
           <Problems />
