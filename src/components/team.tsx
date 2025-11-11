@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react" // <-- Import useEffect
 import { motion, AnimatePresence } from "motion/react"
 import { Linkedin, Github, Mail, ArrowLeft, ArrowRight } from "lucide-react"
 
@@ -8,7 +8,8 @@ const team = [
   {
     name: "Abhijeet Jha",
     role: "AI/ML Engineer",
-    description: "Pioneering intelligent systems and machine learning algorithms to solve complex challenges.",
+    description:
+      "Pioneering intelligent systems and machine learning algorithms to solve complex challenges.",
     image: "/abhijeet.png",
     socials: [
       { icon: Linkedin, url: "#", label: "LinkedIn" },
@@ -19,7 +20,8 @@ const team = [
   {
     name: "Roshan Kumar",
     role: "Co-founder & CTO",
-    description: "Expert in JavaScript, TypeScript, React/Next.js, Flutter, and scalable architecture.",
+    description:
+      "Expert in JavaScript, TypeScript, React/Next.js, Flutter, and scalable architecture.",
     image: "/roshan.png",
     socials: [
       { icon: Linkedin, url: "#", label: "LinkedIn" },
@@ -30,7 +32,8 @@ const team = [
   {
     name: "Ayush Tripathi",
     role: "Founder & AI/ML Engineer",
-    description: "Leading AI/ML innovations and strategic vision for cutting-edge solutions.",
+    description:
+      "Leading AI/ML innovations and strategic vision for cutting-edge solutions.",
     image: "/tripathi.png",
     socials: [
       { icon: Linkedin, url: "#", label: "LinkedIn" },
@@ -40,7 +43,8 @@ const team = [
   {
     name: "Nitish Pandit",
     role: "Co-founder",
-    description: "Driving business growth and client relationships with strategic expertise.",
+    description:
+      "Driving business growth and client relationships with strategic expertise.",
     image: "/nitish.png",
     socials: [
       { icon: Linkedin, url: "#", label: "LinkedIn" },
@@ -50,7 +54,8 @@ const team = [
   {
     name: "Piyush Anand",
     role: "Lead UI/UX Designer",
-    description: "Crafting intuitive and beautiful user experiences that bridge the gap between users and technology.",
+    description:
+      "Crafting intuitive and beautiful user experiences that bridge the gap between users and technology.",
     image: "/piyush.png",
     socials: [
       { icon: Linkedin, url: "#", label: "LinkedIn" },
@@ -59,35 +64,54 @@ const team = [
   },
 ]
 
+// --- ADDITION: Set the interval duration (in milliseconds) ---
+const AUTO_INTERVAL_MS = 5000 // 5 seconds
+
 export default function MeetTheTeam() {
-  const [activeIndex, setActiveIndex] = useState(2);
-  const activeMember = team[activeIndex];
+  const [activeIndex, setActiveIndex] = useState(2)
+  const activeMember = team[activeIndex]
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + team.length) % team.length);
-  };
+    setActiveIndex((prev) => (prev - 1 + team.length) % team.length)
+  }
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % team.length);
-  };
+    setActiveIndex((prev) => (prev + 1) % team.length)
+  }
+
+  // --- ADDITION: useEffect for auto-next interval ---
+  useEffect(() => {
+    // Set up the interval
+    const interval = setInterval(() => {
+      handleNext()
+    }, AUTO_INTERVAL_MS)
+
+    // Clear the interval on component unmount or when activeIndex changes
+    return () => {
+      clearInterval(interval)
+    }
+  }, [activeIndex]) // Dependency array: resets the timer whenever activeIndex changes
+  // --- END ADDITION ---
 
   return (
-    <section className="relative flex flex-col justify-center min-h-screen py-20 md:py-28 text-white bg-black">
+    <section className="relative max-w-screen overflow-hidden flex flex-col justify-center min-h-screen py-20 md:py-28 text-white bg-black">
       <div className="absolute inset-0 bg-dot-white/[0.07] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
       <div className="max-w-7xl mx-auto px-4 w-full">
         <div className="text-center mb-16">
-          <h2 className="text-sm uppercase tracking-widest text-zinc-400 mb-4">Team Section</h2>
+          <h2 className="text-sm uppercase tracking-widest text-zinc-400 mb-4">
+            Team Section
+          </h2>
           <p className="text-4xl md:text-5xl font-bold">Meet the team</p>
         </div>
 
         <div className="relative h-72 flex items-center justify-center">
           {team.map((member, index) => {
-            let offset = index - activeIndex;
-            if (offset > team.length / 2) offset -= team.length;
-            if (offset < -team.length / 2) offset += team.length;
+            let offset = index - activeIndex
+            if (offset > team.length / 2) offset -= team.length
+            if (offset < -team.length / 2) offset += team.length
 
-            const isVisible = Math.abs(offset) <= 2;
+            const isVisible = Math.abs(offset) <= 2
 
             return (
               <motion.div
@@ -105,11 +129,15 @@ export default function MeetTheTeam() {
                 transition={{ type: "spring", stiffness: 100, damping: 20 }}
                 onClick={() => setActiveIndex(index)}
               >
-                <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4"
-                >
-                  <h3 className="text-lg font-bold text-white">{member.name}</h3>
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
+                <motion.div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4">
+                  <h3 className="text-lg font-bold text-white">
+                    {member.name}
+                  </h3>
                   <p className="text-sm text-zinc-300">{member.role}</p>
                 </motion.div>
               </motion.div>
@@ -148,15 +176,21 @@ export default function MeetTheTeam() {
           </AnimatePresence>
 
           <div className="mt-8 flex gap-6">
-            <button onClick={handlePrev} className="p-2 rounded-full border border-zinc-700 text-zinc-400 hover:bg-zinc-800 transition-all">
+            <button
+              onClick={handlePrev}
+              className="p-2 rounded-full border border-zinc-700 text-zinc-400 hover:bg-zinc-800 transition-all"
+            >
               <ArrowLeft />
             </button>
-            <button onClick={handleNext} className="p-2 rounded-full border border-zinc-700 text-zinc-400 hover:bg-zinc-800 transition-all">
+            <button
+              onClick={handleNext}
+              className="p-2 rounded-full border border-zinc-700 text-zinc-400 hover:bg-zinc-800 transition-all"
+            >
               <ArrowRight />
             </button>
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }
