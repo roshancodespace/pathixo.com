@@ -2,24 +2,23 @@
 
 import { motion } from "motion/react";
 import { Linkedin, Github, Twitter, Mail } from "lucide-react";
-import Link from "next/link"; // Import Link for client-side navigation
+import Link from "next/link";
 
 const socialLinks = [
   { icon: Linkedin, url: "#", label: "LinkedIn" },
-  { icon: Github, url: "#", label: "GitHub" },
+  { icon: Github, url: "https://github.com/mallsurf-packages", label: "GitHub" },
   { icon: Twitter, url: "#", label: "Twitter" },
-  { icon: Mail, url: "mailto:contact@pathixo.com", label: "Email" },
+  { icon: Mail, url: "mailto:founder@pathixo.com", label: "Email" },
 ];
 
 const footerLinks = [
   { href: "/#services", label: "Services" },
   { href: "/about", label: "About Us" },
   { href: "/#contact", label: "Contact" },
-  { href: "/careers", label: "Careers" },
-  { href: "/blog", label: "Blog" },
+  { href: "/portfolio", label: "Portfolio" }
 ];
 
-export function Footer() {
+export function Footer({reqConsultation = false}: {reqConsultation?: boolean}) {
   return (
     <footer className="relative border-t border-zinc-800 z-10 pt-24 sm:pt-32 pb-8 bg-black overflow-hidden">
       {/* Subtle background grid */}
@@ -32,6 +31,7 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
+          hidden={!reqConsultation}
           className="flex flex-col items-center text-center"
         >
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
@@ -53,13 +53,14 @@ export function Footer() {
         </motion.div>
 
         {/* Bottom Section */}
-        <div className="border-t border-zinc-800 mt-24 pt-12">
+        <div className={`border-t border-zinc-800 ${reqConsultation ? 'mt-24': undefined} pt-12`}>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             {/* About Column */}
             <div className="md:col-span-5 lg:col-span-6">
               <h3 className="text-white font-semibold text-lg mb-4">About Pathixo</h3>
               <p className="text-sm leading-relaxed text-zinc-400">
-                Pathixo is a digital innovation partner specializing in high-performance web development, cloud infrastructure, and user-centric design. We empower businesses by turning ambitious ideas into market-leading technology.
+                Pathixo is a digital innovation partner specializing in high-performance web development, cloud infrastructure, and user-centric design.
+                We empower businesses by turning ambitious ideas into market-leading technology.
               </p>
             </div>
 
@@ -77,19 +78,32 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Contact Column */}
+            {/* Contact + Offices Column */}
             <div className="md:col-span-4 lg:col-span-4">
               <h3 className="text-white font-semibold text-lg mb-4">Get in Touch</h3>
               <ul className="space-y-2 text-sm text-zinc-400">
                 <li>
-                  <a href="mailto:contact@pathixo.com" className="hover:text-purple-400 transition-colors duration-300">
-                    contact@pathixo.com
+                  <a href="mailto:founder@pathixo.com" className="hover:text-purple-400 transition-colors duration-300">
+                    founder@pathixo.com
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+1234567890" className="hover:text-purple-400 transition-colors duration-300">
-                    +1 (234) 567-890
+                  <a href="tel:+918877020121" className="hover:text-purple-400 transition-colors duration-300">
+                    +91 8877 020 121
                   </a>
+                </li>
+              </ul>
+
+              {/* Office Locations */}
+              <h3 className="text-white font-semibold text-lg mt-6 mb-3">Our Offices</h3>
+              <ul className="space-y-2 text-sm text-zinc-400">
+                <li>
+                  <span className="font-medium text-white">Head Office:</span><br />
+                  Near Metro, Pul Pheladpur, New Delhi
+                </li>
+                <li>
+                  <span className="font-medium text-white">Branch Office:</span><br />
+                  Bokaro Steel City, Jharkhand
                 </li>
               </ul>
             </div>

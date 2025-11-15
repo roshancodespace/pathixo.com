@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import Modal from "@/components/modal";
 import { ProjectContactForm } from "@/components/project-consultation-form";
+import { Footer } from "@/components/footer";
 
 // --- Type Definitions ---
 interface StatProps {
@@ -203,7 +204,7 @@ export default function AboutPage() {
                     </section>
 
                     {/* CTA Section */}
-                    <section className="max-w-5xl mx-auto px-6">
+                    <section className="max-w-5xl mx-auto px-6" hidden>
                         <div className="relative overflow-hidden rounded-3xl border border-purple-500/30 bg-black/50 backdrop-blur-xl">
                             <div className="absolute inset-0 -z-10 bg-gradient-to-br from-purple-600/20 to-blue-600/20"></div>
                             <div className="relative p-12 md:p-16 text-center">
@@ -231,7 +232,7 @@ export default function AboutPage() {
                     </section>
                 </div>
             </div>
-
+            <Footer/>
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                 <ProjectContactForm />
             </Modal>
