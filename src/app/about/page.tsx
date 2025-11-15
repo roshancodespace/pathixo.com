@@ -118,11 +118,11 @@ export default function AboutPage() {
                             We’re a small, sharp team of engineers and designers shipping fast, reliable, and beautiful digital experiences — without the corporate fluff.
                         </p>
                         <div className="mt-16 flex justify-center items-stretch gap-8">
-                            <Stat value="1+" label="Years Experience" />
+                            <Stat value="2+" label="Years Experience" />
                             <div className="w-px bg-gradient-to-b from-transparent via-purple-500/50 to-transparent"></div>
-                            <Stat value="40+" label="Projects Delivered" />
+                            <Stat value="5+" label="Projects Delivered" />
                             <div className="w-px bg-gradient-to-b from-transparent via-purple-500/50 to-transparent"></div>
-                            <Stat value="25+" label="Long-Term Clients" />
+                            <Stat value="2+" label="Long-Term Clients" />
                         </div>
                     </div>
 
@@ -204,7 +204,7 @@ export default function AboutPage() {
                     </section>
 
                     {/* CTA Section */}
-                    <section className="max-w-5xl mx-auto px-6" hidden>
+                    <section className="max-w-5xl mx-auto px-6">
                         <div className="relative overflow-hidden rounded-3xl border border-purple-500/30 bg-black/50 backdrop-blur-xl">
                             <div className="absolute inset-0 -z-10 bg-gradient-to-br from-purple-600/20 to-blue-600/20"></div>
                             <div className="relative p-12 md:p-16 text-center">

@@ -35,11 +35,11 @@ const services = [
     description:
       "Robust, secure, and scalable APIs and backends tailored to your business needs.",
   },
-  {
-    title: "DevOps & Automation",
-    description:
-      "CI/CD pipelines, monitoring, and automated workflows to keep your systems running smoothly.",
-  },
+  // {
+  //   title: "DevOps & Automation",
+  //   description:
+  //     "CI/CD pipelines, monitoring, and automated workflows to keep your systems running smoothly.",
+  // },
 ]
 
 function Services() {

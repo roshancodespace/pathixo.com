@@ -18,7 +18,7 @@ const footerLinks = [
   { href: "/portfolio", label: "Portfolio" }
 ];
 
-export function Footer({reqConsultation = false}: {reqConsultation?: boolean}) {
+export function Footer({ reqConsultation = false }: { reqConsultation?: boolean }) {
   return (
     <footer className="relative border-t border-zinc-800 z-10 pt-24 sm:pt-32 pb-8 bg-black overflow-hidden">
       {/* Subtle background grid */}
@@ -53,7 +53,7 @@ export function Footer({reqConsultation = false}: {reqConsultation?: boolean}) {
         </motion.div>
 
         {/* Bottom Section */}
-        <div className={`border-t border-zinc-800 ${reqConsultation ? 'mt-24': undefined} pt-12`}>
+        <div className={`border-t border-zinc-800 ${reqConsultation ? 'mt-24' : undefined} pt-12`}>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             {/* About Column */}
             <div className="md:col-span-5 lg:col-span-6">
@@ -99,11 +99,11 @@ export function Footer({reqConsultation = false}: {reqConsultation?: boolean}) {
               <ul className="space-y-2 text-sm text-zinc-400">
                 <li>
                   <span className="font-medium text-white">Head Office:</span><br />
-                  Near Metro, Pul Pheladpur, New Delhi
+                  Lal Kuan, New Delhi - 110044
                 </li>
                 <li>
                   <span className="font-medium text-white">Branch Office:</span><br />
-                  Bokaro Steel City, Jharkhand
+                  Bokaro Steel City, Jharkhand - 827013
                 </li>
               </ul>
             </div>
