@@ -45,36 +45,36 @@ interface TechCardProps {
     category: string;
 }
 
-// --- Data with Icons ---
+// --- REALISTIC STARTUP CONTENT ---
 const CORE_VALUES = [
     {
-        title: "Innovation First",
-        description: "We don't follow trends—we create them. Every project is an opportunity to push the boundaries of technology.",
+        title: "Build With Purpose",
+        description: "We don’t write code for the sake of it — every line solves a real problem and moves the product forward.",
         icon: <Lightbulb className="w-6 h-6" />,
     },
     {
-        title: "Obsessive Quality",
-        description: "Good enough isn't in our vocabulary. We iterate and refine until every pixel and interaction is flawless.",
+        title: "High Standards",
+        description: "We prioritize reliability, clarity, and long-term maintainability. If it’s not clean, it doesn’t ship.",
         icon: <Gem className="w-6 h-6" />,
     },
     {
-        title: "Radical Transparency",
-        description: "No jargon, no hidden agendas. We believe in honest communication and building trust through openness.",
+        title: "Straightforward Communication",
+        description: "No overpromising, no corporate jargon. Clear updates, honest expectations, and consistent progress.",
         icon: <MessageSquareQuote className="w-6 h-6" />,
     },
     {
-        title: "User-Centric Design",
-        description: "Technology should serve people, not the other way around. Every decision starts with the end user in mind.",
+        title: "User Experience First",
+        description: "Good design disappears. We create products that feel intuitive, friendly, and enjoyable to use.",
         icon: <Users className="w-6 h-6" />,
     },
     {
-        title: "Continuous Evolution",
-        description: "The tech landscape never stops changing, and neither do we. Learning and adaptation are built into our culture.",
+        title: "Move Fast, Improve Faster",
+        description: "We iterate quickly, test constantly, and adapt based on what actually works — not assumptions.",
         icon: <TrendingUp className="w-6 h-6" />,
     },
     {
-        title: "Impact Over Output",
-        description: "We measure success by the tangible value we create for your business and users, not just lines of code.",
+        title: "Results > Noise",
+        description: "We focus on meaningful output: stable builds, smooth deployments, and real business outcomes.",
         icon: <CheckCircle className="w-6 h-6" />,
     },
 ];
@@ -107,21 +107,21 @@ export default function AboutPage() {
                     <div className="relative max-w-7xl mx-auto px-6 text-center">
                         <Pill>Who We Are</Pill>
                         <h1 className="text-5xl md:text-7xl font-bold mb-8">
-                            Building The
+                            Building Digital Products With
                             <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 animate-gradient">
-                                Future of Digital
+                                Precision & Purpose
                             </span>
                         </h1>
                         <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                            We are innovators, dreamers, and builders creating digital experiences that redefine what's possible and deliver tangible results.
+                            We’re a small, sharp team of engineers and designers shipping fast, reliable, and beautiful digital experiences — without the corporate fluff.
                         </p>
                         <div className="mt-16 flex justify-center items-stretch gap-8">
-                            <Stat value="5+" label="Years Experience" />
+                            <Stat value="1+" label="Years Experience" />
                             <div className="w-px bg-gradient-to-b from-transparent via-purple-500/50 to-transparent"></div>
-                            <Stat value="100+" label="Projects Delivered" />
+                            <Stat value="40+" label="Projects Delivered" />
                             <div className="w-px bg-gradient-to-b from-transparent via-purple-500/50 to-transparent"></div>
-                            <Stat value="50+" label="Happy Clients" />
+                            <Stat value="25+" label="Long-Term Clients" />
                         </div>
                     </div>
 
@@ -144,24 +144,25 @@ export default function AboutPage() {
                             <div className="lg:pr-8">
                                 <Pill>Our Story</Pill>
                                 <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-                                    We Build Products That Actually
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500"> Matter</span>
+                                    A Small Team Doing Work That
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500"> Actually Matters</span>
                                 </h2>
                                 <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
-                                    <p>Pathixo wasn't built in a boardroom. It was forged in late-night coding sessions and an obsessive belief that software should work beautifully—not just function.</p>
-                                    <p>Tired of seeing businesses struggle with half-baked solutions, we decided to create digital products that users love and businesses depend on. Clean code, intuitive design, real impact.</p>
+                                    <p>Pathixo wasn’t formed in boardrooms — it started from frustration. We saw businesses stuck with slow teams, overbuilt systems, fake timelines, and glossy presentations without real output.</p>
+                                    <p>So we built something different: a hands-on engineering studio focused on clarity, speed, and getting things shipped the right way.</p>
+                                    <p>No unnecessary meetings. No inflated estimates. Just focused execution and high-quality products.</p>
                                 </div>
                             </div>
                             <div className="space-y-6">
                                 <InfoCard
                                     icon={<Target className="w-8 h-8 text-purple-400" />}
                                     title="Our Mission"
-                                    description="To build digital products that solve real problems, delight users, and drive measurable business growth."
+                                    description="To build reliable, scalable, user-friendly digital products that solve real problems and move businesses forward."
                                 />
                                 <InfoCard
                                     icon={<Eye className="w-8 h-8 text-blue-400" />}
                                     title="Our Vision"
-                                    description="To set the standard for what great digital products should be—fast, beautiful, and built to last."
+                                    description="To become the go-to engineering team startups trust when they need high-quality work delivered fast."
                                     borderColor="border-blue-500/20 hover:border-blue-500/40"
                                 />
                             </div>
@@ -171,11 +172,13 @@ export default function AboutPage() {
                     {/* Values Section */}
                     <section className="max-w-7xl mx-auto px-6">
                         <div className="text-center mb-20">
-                            <Pill>What Drives Us</Pill>
+                            <Pill>What We Believe</Pill>
                             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                                Principles That <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">Define Us</span>
+                                Values That <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">Guide Our Work</span>
                             </h2>
-                            <p className="text-lg text-gray-400 max-w-2xl mx-auto">These aren't just words on a wall. They're the DNA of everything we create.</p>
+                            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+                                Not fancy slogans — real principles that shape how we build, communicate, and deliver.
+                            </p>
                         </div>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {CORE_VALUES.map((value) => (
@@ -189,7 +192,7 @@ export default function AboutPage() {
                         <div className="text-center mb-20">
                             <Pill>Technology</Pill>
                             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                                Powered By <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">Cutting-Edge Tech</span>
+                                Tools That Help Us Build <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">Better & Faster</span>
                             </h2>
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -207,9 +210,11 @@ export default function AboutPage() {
                                 <h2 className="text-4xl md:text-5xl font-bold mb-6">
                                     Let's Build Something
                                     <br />
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">Extraordinary</span>
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">Real & Impactful</span>
                                 </h2>
-                                <p className="text-lg text-gray-300 mb-12 max-w-2xl mx-auto">Ready to transform your vision into reality? Let's start a conversation.</p>
+                                <p className="text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
+                                    If you want clean engineering, honest communication, and a team that actually delivers — we’re ready.
+                                </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                     <button
                                         onClick={() => setIsModalOpen(true)}

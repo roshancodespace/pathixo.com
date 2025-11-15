@@ -8,46 +8,47 @@ import { NumberTicker } from './magicui/number-ticker';
 
 export const testimonials = [
     {
-        name: "Sarah Johnson",
-        position: "CTO, FinTech Solutions",
-        headline: "“A reliable partner for scaling our cloud infrastructure.”",
+        name: "Rohan Mehta",
+        position: "CTO, CredHash Technologies (Bengaluru)",
+        headline: "“Helped us streamline our cloud costs and improve reliability.”",
         subheadline:
-            "Pathixo helped us modernize and optimize our cloud setup with zero hassle. The team is proactive, skilled, and always delivers on time.",
-        avatar: "https://i.pravatar.cc/150?img=1",
+            "Pathixo assisted us in re-architecting our microservices and reducing deployment friction. Our infra downtime dropped significantly.",
+        avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=rohan",
     },
     {
-        name: "David Lee",
-        position: "Founder, EduNext",
-        headline: "“Outstanding mobile app development.”",
+        name: "Aishwarya Nair",
+        position: "Co-Founder, Lurnify EdTech (Kochi)",
+        headline: "“Clean UI, smooth performance — exactly what we needed.”",
         subheadline:
-            "We trusted Pathixo with our app idea and the results were beyond expectations. The UI/UX is clean and performance is flawless.",
-        avatar: "https://i.pravatar.cc/150?img=2",
+            "We collaborated with Pathixo for our learning app. Their team delivered fast, communicated clearly, and built with scalability in mind.",
+        avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=aishwarya",
     },
     {
-        name: "Ananya Sharma",
-        position: "Project Manager, HealthSphere",
-        headline: "“Seamless and secure cloud migration.”",
+        name: "Vikram Deshpande",
+        position: "Product Lead, MediRoute Health (Pune)",
+        headline: "“Cloud migration done without disrupting our customers.”",
         subheadline:
-            "Pathixo’s support team handled everything with care. We moved our systems to a secure cloud environment with zero downtime.",
-        avatar: "https://i.pravatar.cc/150?img=3",
+            "Our legacy backend was a mess, but Pathixo handled the migration with zero downtime and excellent documentation.",
+        avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=vikram",
     },
     {
-        name: "James Carter",
-        position: "CEO, RetailPro",
-        headline: "“Custom software that gave us a competitive edge.”",
+        name: "Sanya Kapoor",
+        position: "CEO, UrbanKart Retail Solutions (Delhi)",
+        headline: "“Custom tools that actually improved our daily operations.”",
         subheadline:
-            "Pathixo took the time to understand our business challenges and delivered tailor-made software that boosted our operations.",
-        avatar: "https://i.pravatar.cc/150?img=4",
+            "The software Pathixo built for us cut manual work by nearly 40%. The team truly understood our retail workflow.",
+        avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=sanya",
     },
     {
-        name: "Maria Lopez",
-        position: "Operations Head, TravelEase",
-        headline: "“Exceeded expectations from consultation to delivery.”",
+        name: "Arjun Bhat",
+        position: "Operations Manager, TripSutra Travel Tech (Hyderabad)",
+        headline: "“Reliable team — smooth communication and timely delivery.”",
         subheadline:
-            "Pathixo proved to be reliable, transparent, and highly skilled throughout the entire project lifecycle.",
-        avatar: "https://i.pravatar.cc/150?img=5",
+            "From planning to delivery, everything was transparent. Pathixo exceeded expectations given our tight timeline.",
+        avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=arjun",
     },
 ];
+
 
 
 const Testimonials = () => {
