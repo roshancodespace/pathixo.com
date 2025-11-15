@@ -56,9 +56,9 @@ export default function ContactUs() {
             Have a project in mind or just want to say hello? We'd love to hear from you. Fill out the form or reach out to us directly. Let's make something amazing.
           </motion.p>
           <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.5 }} className="space-y-6">
-            <a href="mailto:contact@pathixo.com" className="flex items-center gap-4 group">
+            <a href="mailto:founder@pathixo.com" className="flex items-center gap-4 group">
               <Mail className="w-6 h-6 text-purple-400" />
-              <span className="text-white font-medium group-hover:text-purple-300 transition-colors">contact@pathixo.com</span>
+              <span className="text-white font-medium group-hover:text-purple-300 transition-colors">founder@pathixo.com</span>
             </a>
             <a href="tel:+918877020121" className="flex items-center gap-4 group">
               <Phone className="w-6 h-6 text-blue-400" />
