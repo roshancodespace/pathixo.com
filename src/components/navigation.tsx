@@ -1,15 +1,54 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 function Navigation() {
     const [open, setOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    // Handle scroll effect
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 20) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <nav className="max-w-4xl h-[100px] fixed left-0 right-0 px-3 mx-auto top-2 md:top-4 z-50">
-            <div className="rounded-full backdrop-blur-sm flex justify-between items-center shadow-[0px_0px_0px_0.5px_#2d3748] bg-[#ffffff06] px-5 py-4 mt-2">
+        <nav
+            className={`
+                fixed left-0 right-0 z-50 mx-auto transition-all duration-300 ease-in-out
+                /* Desktop Styles (Always floating pill) */
+                md:top-4 md:px-3 md:max-w-4xl
+                /* Mobile Styles (Dynamic based on scroll) */
+                ${scrolled ? "top-0 px-0 w-full" : "top-2 px-3 max-w-4xl"}
+            `}
+        >
+            <div
+                className={`
+                    flex justify-between items-center 
+                    backdrop-blur-sm shadow-[0px_0px_0px_0.5px_#2d3748] 
+                    px-5 py-4 transition-all duration-300
+                    border-b border-white/10
+                    
+                    /* Desktop Styles */
+                    md:rounded-full md:mt-2 md:bg-[#ffffff06]
+
+                    /* Mobile Styles */
+                    ${scrolled
+                        ? "rounded-none mt-0 bg-[#0a0a0a]/90" // Scrolled: Full width, dark bg
+                        : "rounded-full mt-2 bg-[#ffffff06]" // Top: Floating pill, transparent
+                    }
+                `}
+            >
                 <div className="flex items-center">
                     <div
                         className="bg-white text-black rounded-lg p-3 size-8 flex items-center justify-center font-bold text-2xl"
@@ -25,6 +64,7 @@ function Navigation() {
                     </h1>
                 </div>
 
+                {/* Desktop Links */}
                 <div className="hidden md:flex">
                     <Link href="/#home" className="mx-4 hover:underline">Home</Link>
                     <Link href="/#services" className="mx-4 hover:underline">Services</Link>
@@ -39,6 +79,7 @@ function Navigation() {
                     </Link>
                 </div>
 
+                {/* Mobile Menu Button */}
                 <button onClick={() => setOpen(true)} className="md:hidden text-white">
                     <Menu size={26} />
                 </button>
@@ -47,13 +88,13 @@ function Navigation() {
             {/* Mobile Drawer */}
             <div
                 className={`
-    fixed top-0 left-0 h-full w-64 
-    bg-black/80 backdrop-blur-md
-    border-r border-white/10
-    z-50 p-6 flex flex-col
-    transition-transform duration-300 ease-out
-    ${open ? "translate-x-0" : "-translate-x-full"}
-  `}
+                    fixed top-0 left-0 h-screen w-64 
+                    bg-black/90 backdrop-blur-xl
+                    border-r border-white/10
+                    z-50 p-6 flex flex-col
+                    transition-transform duration-300 ease-out
+                    ${open ? "translate-x-0" : "-translate-x-full"}
+                `}
             >
                 {/* Header */}
                 <div className="flex items-center justify-between mb-10">
@@ -65,64 +106,39 @@ function Navigation() {
                     </div>
 
                     <button onClick={() => setOpen(false)}>
-                        <X className="text-white/60" size={26} />
+                        <X className="text-white/60 hover:text-white" size={26} />
                     </button>
                 </div>
 
                 {/* Nav Items */}
                 <div className="flex flex-col space-y-6">
-                    <Link
-                        onClick={() => setOpen(false)}
-                        href="/#home"
-                        className="text-white/80 text-lg hover:text-white transition"
-                    >
-                        Home
-                    </Link>
-                    <Link
-                        onClick={() => setOpen(false)}
-                        href="/#services"
-                        className="text-white/80 text-lg hover:text-white transition"
-                    >
-                        Services
-                    </Link>
-                    <Link
-                        onClick={() => setOpen(false)}
-                        href="/portfolio"
-                        className="text-white/80 text-lg hover:text-white transition"
-                    >
-                        Portfolio
-                    </Link>
-                    <Link
-                        onClick={() => setOpen(false)}
-                        href="/about"
-                        className="text-white/80 text-lg hover:text-white transition"
-                    >
-                        About
-                    </Link>
-                    <Link
-                        onClick={() => setOpen(false)}
-                        href="/#contact"
-                        className="text-white/80 text-lg hover:text-white transition"
-                    >
-                        Contact
-                    </Link>
+                    {["Home", "Services", "Portfolio", "About", "Contact"].map((item) => (
+                        <Link
+                            key={item}
+                            onClick={() => setOpen(false)}
+                            href={item === "Home" ? "/#home" : item === "Contact" ? "/#contact" : item === "Services" ? "/#services" : `/${item.toLowerCase()}`}
+                            className="text-white/80 text-lg hover:text-white transition"
+                        >
+                            {item}
+                        </Link>
+                    ))}
                 </div>
 
                 {/* Divider */}
                 <div className="my-8 border-t border-white/10"></div>
 
-                {/* Courses — the only highlighted CTA */}
+                {/* Courses CTA */}
                 <Link
                     onClick={() => setOpen(false)}
                     href="https://edu.pathixo.com"
                     className="
-      text-white text-lg font-semibold
-      px-3 py-2 rounded-md
-      bg-white/5
-      border border-white/10
-      hover:bg-white/10
-      transition
-    "
+                        text-white text-lg font-semibold text-center
+                        px-3 py-3 rounded-lg
+                        bg-white/10
+                        border border-white/10
+                        hover:bg-white/20
+                        transition
+                    "
                 >
                     Courses
                 </Link>
@@ -133,6 +149,13 @@ function Navigation() {
                 </div>
             </div>
 
+            {/* Backdrop for Mobile Menu */}
+            {open && (
+                <div
+                    className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+                    onClick={() => setOpen(false)}
+                />
+            )}
         </nav>
     );
 }
