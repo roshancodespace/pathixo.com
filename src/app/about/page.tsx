@@ -17,6 +17,7 @@ import {
 import Modal from "@/components/modal";
 import { ProjectContactForm } from "@/components/project-consultation-form";
 import { Footer } from "@/components/footer";
+import Link from "next/link";
 
 // --- Type Definitions ---
 interface StatProps {
@@ -223,9 +224,9 @@ export default function AboutPage() {
                                     >
                                         <span className="relative z-10">Start Your Project</span>
                                     </button>
-                                    <button className="px-8 py-4 border-2 border-purple-500/50 rounded-full font-semibold text-lg hover:bg-purple-500/10 hover:border-purple-500 transition-all">
+                                    <Link href="/portfolio" className="px-8 py-4 border-2 border-purple-500/50 rounded-full font-semibold text-lg hover:bg-purple-500/10 hover:border-purple-500 transition-all">
                                         View Our Work
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

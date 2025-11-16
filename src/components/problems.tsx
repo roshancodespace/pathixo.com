@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 export function Problems() {
   return (
@@ -90,12 +91,11 @@ export function Problems() {
             </ul>
 
             <div className="mt-5">
-              <Button
+              <Link href="/#contact"
                 className="bg-purple-500 hover:bg-purple-600 text-black font-semibold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105"
-                onClick={() => alert('Contact sales')}
               >
                 Talk to an engineer
-              </Button>
+              </Link>
             </div>
           </motion.div>
         </aside>

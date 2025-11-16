@@ -3,6 +3,7 @@
 
 import { motion } from 'motion/react'
 import RotatingText from "./RotatingText"
+import Link from 'next/link'
 
 export function Hero() {
     return (
@@ -52,12 +53,12 @@ export function Hero() {
                     <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 group">
                         <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                         <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-3 font-semibold text-white backdrop-blur-3xl transition-all hover:from-purple-700 hover:to-blue-700 group-hover:scale-105">
-                            Get a Quote
+                            Start Your Project
                         </span>
                     </button>
-                    <button className="inline-flex h-12 items-center justify-center rounded-full border-2 border-white/20 bg-white/5 px-8 py-3 font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/30 hover:scale-105">
+                    <Link href="https://cal.com/pathixo/quickchat" className="inline-flex h-12 items-center justify-center rounded-full border-2 border-white/20 bg-white/5 px-8 py-3 font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/30 hover:scale-105">
                         Book a Call
-                    </button>
+                    </Link>
                 </div>
 
                 {/* Scroll Down Indicator */}
@@ -71,6 +72,7 @@ export function Hero() {
                     </div>
                 </div>
             </div>
+
         </section>
     )
 }

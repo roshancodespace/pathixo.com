@@ -18,17 +18,23 @@ export default function ContactUs() {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    // Simulate a network request
-    setTimeout(() => {
-      // Replace with your actual API call
-      console.log("Form submitted:", form);
+
+    const res = await fetch("https://formspree.io/f/xdkywzap", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    if (res.ok) {
       setStatus("success");
       setForm({ name: "", email: "", message: "" });
-    }, 2000);
-  }
+    } else {
+      setStatus("error");
+    }
+  };
 
   return (
     <section className="min-h-screen pt-[25vh] bg-black relative overflow-hidden px-6" id='contact'>
