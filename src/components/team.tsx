@@ -62,7 +62,7 @@ const team = [
     ],
   },
     {
-    name: "Om Kartike",
+    name: "Kartik Singh",
     role: "UI/UX Designer",
     description:"Crafting intuitive and engaging user experiences through innovative design.",
     image: "/om.png",
