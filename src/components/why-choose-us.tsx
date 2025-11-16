@@ -53,7 +53,7 @@ export default function WhyChooseUs() {
             <div
               key={idx}
               className={`bg-zinc-900/50 backdrop-blur-sm rounded-2xl p-8 border border-zinc-800 transition-all duration-300 flex flex-col gap-4 
-              hover:border-transparent hover:shadow-lg hover:shadow-purple-500/10 hover:bg-zinc-900/80
+              hover:bg-zinc-900/80
               ${idx == 2 && "row-start-2 col-span-2 col-start-2"}`}
             >
               <div className="flex items-center gap-4">
@@ -69,7 +69,7 @@ export default function WhyChooseUs() {
           ))}
 
           {/* Highlighted Scalable card */}
-          <div className="bg-zinc-900/50 backdrop-blur-sm rounded-2xl p-8 border border-zinc-800 transition-all duration-300 flex flex-col gap-6 md:row-span-2 md:row-start-1 hover:border-transparent hover:shadow-xl hover:shadow-indigo-500/10 hover:bg-zinc-900/80">
+          <div className="bg-zinc-900/50 backdrop-blur-sm rounded-2xl p-8 border border-zinc-800 transition-all duration-300 flex flex-col gap-6 md:row-span-2 md:row-start-1 hover:bg-zinc-900/80">
             <div className="flex items-center gap-4">
               <div className="p-4 rounded-full bg-gradient-to-r from-purple-500/20 to-indigo-500/20 border border-indigo-500/30 flex items-center justify-center">
                 <Rocket className="w-6 h-6 text-indigo-400" />
