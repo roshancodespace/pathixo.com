@@ -1,6 +1,7 @@
 "use client"
 
 import { ShieldCheck, Zap, Users, Rocket, ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 const reasons = [
   {
@@ -79,10 +80,10 @@ export default function WhyChooseUs() {
             <p className="text-zinc-300 text-sm md:text-base leading-relaxed">
               {reasons[3].description}
             </p>
-            <button className="mt-auto ml-auto self-start inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-indigo-500 hover:to-purple-500 text-black font-semibold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105">
+            <Link href='/about' className="mt-auto ml-auto self-start inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-indigo-500 hover:to-purple-500 text-black font-semibold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105">
               Learn More
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>

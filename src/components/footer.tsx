@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Linkedin, Github, Twitter, Mail } from "lucide-react";
+import { Linkedin, Github, Twitter, Mail, Instagram } from "lucide-react";
 import Link from "next/link";
 
 const socialLinks = [
   { icon: Linkedin, url: "https://www.instagram.com/pathixo_?igsh=N21vb2ZrMmQxNHNs", label: "LinkedIn" },
   { icon: Github, url: "https://github.com/mallsurf-packages", label: "GitHub" },
   { icon: Twitter, url: "#", label: "Twitter" },
-  { icon: Mail, url: "https://www.instagram.com/pathixo_?igsh=N21vb2ZrMmQxNHNs", label: "Instagram" },
+  { icon: Instagram, url: "https://www.instagram.com/pathixo_?igsh=N21vb2ZrMmQxNHNs", label: "Instagram" },
   { icon: Mail, url: "mailto:founder@pathixo.com", label: "Email" },
 ];
 

@@ -2,12 +2,12 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
-import { Linkedin, Github, Twitter, Mail, Phone, Loader2, Check } from "lucide-react"
+import { Linkedin, Github, Twitter, Mail, Phone, Loader2, Check, Instagram } from "lucide-react"
 
 const socialLinks = [
-  { icon: Twitter, url: "#" },
-  { icon: Linkedin, url: "#" },
-  { icon: Github, url: "#" },
+  { icon: Instagram, url: "https://www.instagram.com/pathixo_?igsh=N21vb2ZrMmQxNHNs" },
+  { icon: Linkedin, url: "https://www.instagram.com/pathixo_?igsh=N21vb2ZrMmQxNHNs" },
+  { icon: Github, url: "https://github.com/mallsurf-packages" },
 ]
 
 export default function ContactUs() {
