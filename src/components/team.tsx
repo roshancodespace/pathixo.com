@@ -10,7 +10,7 @@ const team = [
     role: "AI/ML Engineer",
     description:
       "Pioneering intelligent systems and machine learning algorithms to solve complex challenges.",
-    image: "/abhijeet.png",
+    image: "https://avatars.githubusercontent.com/u/169458770?v=4",
     socials: [
       { icon: Linkedin, url: "#", label: "LinkedIn" },
       { icon: Github, url: "https://github.com/jhaabhijeet864", label: "GitHub" },
