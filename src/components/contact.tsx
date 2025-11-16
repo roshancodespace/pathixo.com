@@ -37,7 +37,7 @@ export default function ContactUs() {
   };
 
   return (
-    <section className="min-h-screen pt-[25vh] bg-black relative overflow-hidden px-6" id='contact'>
+    <section className="min-h-screen pt-[25vh] bg-black relative overflow-hidden px-6 pb-10" id='contact'>
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-purple-900/20 blur-[200px] rounded-full" />
         <div className="absolute bottom-0 right-1/3 w-[300px] h-[300px] bg-blue-900/20 blur-[180px] rounded-full" />
