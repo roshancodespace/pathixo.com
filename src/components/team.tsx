@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react" // <-- Import useEffect
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { Linkedin, Github, Mail, ArrowLeft, ArrowRight } from "lucide-react"
 
@@ -9,35 +9,34 @@ const team = [
     name: "Abhijeet Jha",
     role: "AI/ML Engineer",
     description:
-      "Pioneering intelligent systems and machine learning algorithms to solve complex challenges.",
+      "Passionate about developing AI-driven solutions to solve real-world problems.",
     image: "https://avatars.githubusercontent.com/u/169458770?v=4",
     socials: [
-      { icon: Linkedin, url: "#", label: "LinkedIn" },
-      { icon: Github, url: "https://github.com/jhaabhijeet864", label: "GitHub" },
-      { icon: Mail, url: "mailto:abhijeet@pathixo.com", label: "Email" },
+      // { icon: Linkedin, url: "#", label: "LinkedIn" },
+      // { icon: Github, url: "https://github.com/jhaabhijeet864", label: "GitHub" },
+      // { icon: Mail, url: "mailto:abhijeet@pathixo.com", label: "Email" },
     ],
   },
   {
     name: "Roshan Kumar",
     role: "Co-founder & CTO",
-    description:
-      "Expert in JavaScript, TypeScript, React/Next.js, Flutter, and scalable architecture.",
+    description: "Leading technology strategy and development for innovative solutions.",
     image: "/roshan.png",
     socials: [
-      { icon: Linkedin, url: "#", label: "LinkedIn" },
-      { icon: Github, url: "https://github.com/roshancodespace", label: "GitHub" },
-      { icon: Mail, url: "mailto:roshan@pathixo.com", label: "Email" },
+      // { icon: Linkedin, url: "#", label: "LinkedIn" },
+      // { icon: Github, url: "https://github.com/roshancodespace", label: "GitHub" },
+      // { icon: Mail, url: "mailto:roshan@pathixo.com", label: "Email" },
     ],
   },
   {
     name: "Ayush Tripathi",
     role: "Founder & AI/ML Engineer",
     description:
-      "Leading AI/ML innovations and strategic vision for cutting-edge solutions.",
+      "",
     image: "/tripathi.png",
     socials: [
-      { icon: Linkedin, url: "#", label: "LinkedIn" },
-      { icon: Mail, url: "mailto:ayush@pathixo.com", label: "Email" },
+      // { icon: Linkedin, url: "#", label: "LinkedIn" },
+      // { icon: Mail, url: "mailto:ayush@pathixo.com", label: "Email" },
     ],
   },
   {
@@ -47,25 +46,24 @@ const team = [
       "Driving business growth and client relationships with strategic expertise.",
     image: "/nitish.png",
     socials: [
-      { icon: Linkedin, url: "#", label: "LinkedIn" },
-      { icon: Mail, url: "mailto:nitish@pathixo.com", label: "Email" },
+      // { icon: Linkedin, url: "#", label: "LinkedIn" },
+      // { icon: Mail, url: "mailto:nitish@pathixo.com", label: "Email" },
     ],
   },
   {
-    name: "Piyush Anand",
-    role: "Lead UI/UX Designer",
+    name: "Ankit Kumar",
+    role: "Devops Engineer",
     description:
-      "Crafting intuitive and beautiful user experiences that bridge the gap between users and technology.",
-    image: "/piyush.png",
+      "Specializing in cloud infrastructure, CI/CD pipelines, and system reliability.",
+    image: "/ankit.png",
     socials: [
-      { icon: Linkedin, url: "#", label: "LinkedIn" },
-      { icon: Mail, url: "mailto:piyush@pathixo.com", label: "Email" },
+      // { icon: Linkedin, url: "#", label: "LinkedIn" },
+      // { icon: Mail, url: "mailto:piyush@pathixo.com", label: "Email" },
     ],
   },
 ]
 
-// --- ADDITION: Set the interval duration (in milliseconds) ---
-const AUTO_INTERVAL_MS = 5000 // 5 seconds
+const AUTO_INTERVAL_MS = 5000
 
 export default function MeetTheTeam() {
   const [activeIndex, setActiveIndex] = useState(2)
@@ -79,19 +77,15 @@ export default function MeetTheTeam() {
     setActiveIndex((prev) => (prev + 1) % team.length)
   }
 
-  // --- ADDITION: useEffect for auto-next interval ---
   useEffect(() => {
-    // Set up the interval
     const interval = setInterval(() => {
       handleNext()
     }, AUTO_INTERVAL_MS)
 
-    // Clear the interval on component unmount or when activeIndex changes
     return () => {
       clearInterval(interval)
     }
-  }, [activeIndex]) // Dependency array: resets the timer whenever activeIndex changes
-  // --- END ADDITION ---
+  }, [activeIndex])
 
   return (
     <section className="relative max-w-screen overflow-hidden flex flex-col justify-center min-h-screen py-20 md:py-28 text-white bg-black">
@@ -158,8 +152,12 @@ export default function MeetTheTeam() {
               <p className="text-zinc-400 text-base leading-relaxed mb-6 min-h-[72px]">
                 {activeMember.description}
               </p>
-              <div className="flex justify-center gap-4">
-                {activeMember.socials.map((social) => (
+              {activeMember.socials && (<div className="flex justify-center gap-4">
+                {activeMember.socials.map((social: {
+                  icon: React.ComponentType<any>
+                  url: string
+                  label: string
+                }) => (
                   <a
                     key={social.label}
                     href={social.url}
@@ -171,7 +169,7 @@ export default function MeetTheTeam() {
                     <social.icon className="w-5 h-5" />
                   </a>
                 ))}
-              </div>
+              </div>)}
             </motion.div>
           </AnimatePresence>
 
