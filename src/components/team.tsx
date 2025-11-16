@@ -30,7 +30,7 @@ const team = [
   },
   {
     name: "Ayush Tripathi",
-    role: "Founder & AI/ML Engineer",
+    role: "Founder",
     description:
       "",
     image: "/tripathi.png",
@@ -56,6 +56,16 @@ const team = [
     description:
       "Specializing in cloud infrastructure, CI/CD pipelines, and system reliability.",
     image: "/ankit.png",
+    socials: [
+      // { icon: Linkedin, url: "#", label: "LinkedIn" },
+      // { icon: Mail, url: "mailto:piyush@pathixo.com", label: "Email" },
+    ],
+  },
+    {
+    name: "Om Kartike",
+    role: "UI/UX Designer",
+    description:"Crafting intuitive and engaging user experiences through innovative design.",
+    image: "/om.png",
     socials: [
       // { icon: Linkedin, url: "#", label: "LinkedIn" },
       // { icon: Mail, url: "mailto:piyush@pathixo.com", label: "Email" },
