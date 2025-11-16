@@ -5,9 +5,10 @@ import { Linkedin, Github, Twitter, Mail } from "lucide-react";
 import Link from "next/link";
 
 const socialLinks = [
-  { icon: Linkedin, url: "#", label: "LinkedIn" },
+  { icon: Linkedin, url: "https://www.instagram.com/pathixo_?igsh=N21vb2ZrMmQxNHNs", label: "LinkedIn" },
   { icon: Github, url: "https://github.com/mallsurf-packages", label: "GitHub" },
   { icon: Twitter, url: "#", label: "Twitter" },
+  { icon: Mail, url: "https://www.instagram.com/pathixo_?igsh=N21vb2ZrMmQxNHNs", label: "Instagram" },
   { icon: Mail, url: "mailto:founder@pathixo.com", label: "Email" },
 ];
 
