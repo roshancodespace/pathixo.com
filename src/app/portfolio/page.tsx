@@ -88,20 +88,23 @@ export default function PortfolioPage() {
           Be the first to know when Mallsurf launches.
         </p>
         <form
+          action="https://formspree.io/f/movykned"
+          method="POST"
           onSubmit={(e) => {
-            e.preventDefault()
             alert("Thank you for joining the waitlist! 🚀")
             setIsModalOpen(false)
           }}
           className="space-y-4"
         >
           <input
+            name="name"
             type="text"
             placeholder="Your Name"
             className="w-full px-4 py-3 rounded-lg bg-zinc-800 border border-zinc-700 focus:border-purple-500 outline-none transition"
             required
           />
           <input
+            name="email"
             type="email"
             placeholder="Your Email"
             className="w-full px-4 py-3 rounded-lg bg-zinc-800 border border-zinc-700 focus:border-purple-500 outline-none transition"
