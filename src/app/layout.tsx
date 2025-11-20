@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Figtree, Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/navigation";
+import { Toaster } from "sonner";
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -75,12 +76,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark">
+    <html lang="en" className="dark">
       <body
         className={`${figtree.className} ${poppins.variable} ${montserrat.variable} bg-[#060016] text-white min-h-screen max-w-screen overflow-x-hidden`}
       >
         <Navigation />
         {children}
+        <Toaster/>
       </body>
     </html>
   );

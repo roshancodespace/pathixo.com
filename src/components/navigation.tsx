@@ -71,6 +71,8 @@ function Navigation() {
                     <Link href="/portfolio" className="mx-4 hover:underline">Portfolio</Link>
                     <Link href="/about" className="mx-4 hover:underline">About</Link>
                     <Link href="/#contact" className="mx-4 hover:underline">Contact</Link>
+
+                    <Link href="/careers" className="mx-4 hover:underline">Careers</Link>
                     <Link
                         href="https://edu.pathixo.com"
                         className="mx-4 font-semibold underline decoration-2 underline-offset-4 hover:opacity-80 transition-all hover:drop-shadow-[0_0_4px_rgba(255,255,255,0.6)]"
@@ -112,11 +114,11 @@ function Navigation() {
 
                 {/* Nav Items */}
                 <div className="flex flex-col space-y-6">
-                    {["Home", "Services", "Portfolio", "About", "Contact"].map((item) => (
+                    {["Home", "Services", "Portfolio", "About", "Contact", "Careers"].map((item) => (
                         <Link
                             key={item}
                             onClick={() => setOpen(false)}
-                            href={item === "Home" ? "/#home" : item === "Contact" ? "/#contact" : item === "Services" ? "/#services" : `/${item.toLowerCase()}`}
+                            href={item === "Home" ? "/#home" : item === "Contact" ? "/#contact" : item === "Services" ? "/#services" : item === "Careers" ?  '/careers' : `/${item.toLowerCase()}`}
                             className="text-white/80 text-lg hover:text-white transition"
                         >
                             {item}
