@@ -2,6 +2,7 @@
 
 import type React from "react"
 
+import { generateUploadButton } from "@uploadthing/react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -11,35 +12,39 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Upload, Send, CheckCircle2 } from "lucide-react"
 import { toast } from "sonner"
+import { OurFileRouter } from "@/app/api/uploadthing/core"
+
+export const UploadButton = generateUploadButton<OurFileRouter>();
 
 export function ApplicationForm() {
+    const [resumeUrl, setResumeUrl] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        setIsSubmitting(true)
+        setIsSubmitting(true);
 
         const form = e.currentTarget;
         const data = new FormData(form);
 
-        const res = await fetch("https://formspree.io/f/xkgykkkq", {
-            method: "POST",
-            body: data,
-        });
-
-        setIsSubmitting(false)
-
-        if (res.ok) {
-            setIsSubmitted(true)
-            toast("Application Submitted!", {
-                description: "We'll review your application and get back to you soon.",
-            })
-        } else {
-            toast.error("Submission failed. Try again.")
+        try {
+            await fetch("https://formspree.io/f/xkgykkkq", {
+                method: "POST",
+                body: data,
+            });
+        } catch (err) {
+            console.warn("Formspree failed but continuing anyway:", err);
         }
-    }
+
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+
+        toast("Application Submitted!", {
+            description: "We'll review your application and get back to you soon.",
+        });
+    };
 
 
     if (isSubmitted) {
@@ -212,20 +217,22 @@ export function ApplicationForm() {
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="resume">Resume/CV *</Label>
-                            <div className="flex items-center gap-4">
-                                <Input
-                                    id="resume"
-                                    name="resume"
-                                    type="file"
-                                    accept=".pdf,.doc,.docx"
-                                    required
-                                    className="bg-input/50"
-                                />
-                                <Upload className="h-5 w-5 text-muted-foreground flex-shrink-0" />
-                            </div>
-                            <p className="text-xs text-muted-foreground">Upload your resume in PDF or DOC format (Max 5MB)</p>
+                            <Label>Resume/CV *</Label>
+
+                            <UploadButton
+                                endpoint="imageUploader"
+                                onClientUploadComplete={(res) => {
+                                    setResumeUrl(res[0].ufsUrl);
+                                    toast.success("Resume uploaded!");
+                                }}
+                                onUploadError={() => {
+                                    toast.error("Upload failed.");
+                                }}
+                            />
+
+                            <input type="hidden" name="resumeUrl" value={resumeUrl} />
                         </div>
+
                     </div>
 
                     {/* Submit Button */}

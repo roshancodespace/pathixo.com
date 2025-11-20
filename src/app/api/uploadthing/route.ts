@@ -1,9 +1,11 @@
-// import { utapi } from "./core";
+import { createRouteHandler } from "uploadthing/next";
 
-// export const POST = utapi
-//   .fileTypes(["pdf", "doc", "docx"])
-//   .maxSize("5MB")
-//   .onUploadComplete(({ file }) => {
-//     return { url: file.url };
-//   })
-//   .createRouteHandler();
+import { ourFileRouter } from "./core";
+
+// Export routes for Next App Router
+export const { GET, POST } = createRouteHandler({
+  router: ourFileRouter,
+
+  // Apply an (optional) custom config:
+  // config: { ... },
+});
