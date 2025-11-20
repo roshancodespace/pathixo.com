@@ -8,7 +8,7 @@ export default function PortfolioPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
+    <div className="min-h-screen bg-black text-white">
       {/* HERO SECTION */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-dot-white/[0.06] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
