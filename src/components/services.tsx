@@ -47,7 +47,7 @@ function Services() {
   
   return (
     <section
-      className="min-h-screen relative z-[1] max-w-7xl py-20 px-4 space-y-12 w-full mx-auto"
+      className="min-h-screen relative z-[1] max-w-7xl pt-40 px-4 space-y-12 w-full mx-auto"
       id="services"
     >
       <div>
