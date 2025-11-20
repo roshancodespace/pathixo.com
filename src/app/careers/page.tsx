@@ -1,10 +1,25 @@
 import { Button } from "@/components/ui/button"
-import { Sparkles, Code2, Smartphone, Globe, ArrowRight, MapPin, Clock, Users, Rocket, Heart, Zap } from "lucide-react"
+import {
+  Sparkles,
+  Code2,
+  Smartphone,
+  Globe,
+  ArrowRight,
+  MapPin,
+  Clock,
+  Users,
+  Rocket,
+  Heart,
+  Zap,
+  TrendingUp,
+  Award,
+  Coffee,
+} from "lucide-react"
 import Link from "next/link"
 
 export default function CareersPage() {
   return (
-    <main className="min-h-screen pt-30 bg-background relative overflow-hidden">
+    <main className="min-h-screen bg-background relative overflow-hidden">
       {/* Background gradient effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
@@ -12,29 +27,69 @@ export default function CareersPage() {
       </div>
 
       <div className="relative z-10">
-
         {/* Hero Section */}
-        <section className="container mx-auto px-4 pt-20 pb-12">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
+        <section className="container min-h-[80vh] flex items-center justify-center mx-auto px-4 pt-20 pb-16">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm text-primary mb-4">
               <Sparkles className="h-4 w-4" />
               <span>We're Hiring</span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-balance">
-              Build The Future With{" "}
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Pathixo</span>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-balance leading-tight">
+              Shape Tomorrow's{" "}
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Technology</span>
             </h1>
 
             <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto leading-relaxed">
-              Join our growing team of innovators. We're looking for talented individuals passionate about technology
-              and creating cutting-edge solutions in Android and Web Development.
+              Join a team of passionate innovators building cutting-edge solutions. At Pathixo, we don't just follow
+              trends—we create them.
             </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-8 pt-4">
+              <div className="flex items-center gap-3">
+                <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <TrendingUp className="h-6 w-6 text-primary" />
+                </div>
+                <div className="text-left">
+                  <div className="text-2xl font-bold">Fast Growing</div>
+                  <div className="text-sm text-muted-foreground">Startup Environment</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Award className="h-6 w-6 text-primary" />
+                </div>
+                <div className="text-left">
+                  <div className="text-2xl font-bold">Impactful Work</div>
+                  <div className="text-sm text-muted-foreground">Real-world Projects</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Coffee className="h-6 w-6 text-primary" />
+                </div>
+                <div className="text-left">
+                  <div className="text-2xl font-bold">Great Culture</div>
+                  <div className="text-sm text-muted-foreground">Collaborative Team</div>
+                </div>
+              </div>
+            </div>
+
+            {/* <div className="pt-4">
+              <Link href="/careers/apply">
+                <Button size="lg" className="text-base h-12 px-8">
+                  View Open Positions
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div> */}
           </div>
         </section>
 
         {/* What We Do Section */}
-        <section className="container mx-auto px-4 pb-20">
+        <section className="container mx-auto px-4 pb-20" hidden>
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12">What We Do</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
