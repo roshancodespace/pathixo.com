@@ -21,9 +21,9 @@ const footerLinks = [
 
 export function Footer({ reqConsultation = false }: { reqConsultation?: boolean }) {
   return (
-    <footer className="relative border-t border-zinc-800 z-10 pt-24 sm:pt-32 pb-8 bg-black overflow-hidden">
+    <footer className="relative border-t border-zinc-800 z-10 pt-24 sm:pt-32 pb-8 bg-zinc-950 overflow-hidden">
       {/* Subtle background grid */}
-      <div className="absolute top-0 left-0 w-full h-full -z-10 bg-[radial-gradient(#2d2d2d_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+      {/* <div className="absolute top-0 left-0 w-full h-full -z-10 bg-[radial-gradient(#2d2d2d_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div> */}
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Main CTA Section */}
