@@ -91,7 +91,7 @@ const Testimonials = () => {
         dark: 1,
         diffuse: 1.2,
         scale: 1,
-        mapSamples: 9000, 
+        mapSamples: 5000, 
         mapBrightness: 6,
         baseColor: [1, 1, 1],
         markerColor: [1, 0.5, 1],
