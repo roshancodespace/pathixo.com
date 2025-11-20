@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Figtree, Montserrat, Poppins } from "next/font/google";
+import { Figtree, Montserrat, Poppins, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/navigation";
 import { Toaster } from "sonner";
@@ -8,6 +8,12 @@ const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-montserrat',
+})
+
+const dm_sans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-dm-sans',
 })
 
 const figtree = Figtree({
@@ -78,7 +84,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${figtree.className} ${poppins.variable} ${montserrat.variable} bg-[#060016] text-white min-h-screen max-w-screen overflow-x-hidden`}
+        className={`${figtree.className} ${dm_sans.variable} ${poppins.variable} ${montserrat.variable} bg-[#060016] text-white min-h-screen max-w-screen overflow-x-hidden`}
       >
         <Navigation />
         {children}
