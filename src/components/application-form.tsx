@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Upload, Send, CheckCircle2 } from "lucide-react"
+import { Upload, Send, CheckCircle2, X, FileText } from "lucide-react"
 import { toast } from "sonner"
 import { OurFileRouter } from "@/app/api/uploadthing/core"
 
@@ -219,16 +219,39 @@ export function ApplicationForm() {
                         <div className="space-y-2">
                             <Label>Resume/CV *</Label>
 
-                            <UploadButton
-                                endpoint="imageUploader"
-                                onClientUploadComplete={(res) => {
-                                    setResumeUrl(res[0].ufsUrl);
-                                    toast.success("Resume uploaded!");
-                                }}
-                                onUploadError={() => {
-                                    toast.error("Upload failed.");
-                                }}
-                            />
+                            {resumeUrl ? (
+                                <div className="flex items-center justify-between p-4 border border-primary/20 rounded-lg bg-primary/5">
+                                    <div className="flex items-center gap-3">
+                                        <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <FileText className="h-5 w-5 text-primary" />
+                                        </div>
+                                        <div>
+                                            <p className="text-sm font-medium">Resume Uploaded</p>
+                                            <p className="text-xs text-muted-foreground">Ready to submit</p>
+                                        </div>
+                                    </div>
+                                    <Button
+                                        type="button"
+                                        variant="ghost"
+                                        size="icon"
+                                        onClick={() => setResumeUrl("")}
+                                        className="text-muted-foreground hover:text-destructive"
+                                    >
+                                        <X className="h-4 w-4" />
+                                    </Button>
+                                </div>
+                            ) : (
+                                <UploadButton
+                                    endpoint="imageUploader"
+                                    onClientUploadComplete={(res) => {
+                                        setResumeUrl(res[0].ufsUrl);
+                                        toast.success("Resume uploaded!");
+                                    }}
+                                    onUploadError={() => {
+                                        toast.error("Upload failed.");
+                                    }}
+                                />
+                            )}
 
                             <input type="hidden" name="resumeUrl" value={resumeUrl} />
                         </div>
