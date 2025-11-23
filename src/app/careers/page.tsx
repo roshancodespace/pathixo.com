@@ -1,3 +1,4 @@
+import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import {
   Sparkles,
@@ -327,13 +328,7 @@ export default function CareersPage() {
         </section>
 
         {/* Footer */}
-        <footer className="border-t border-border/40 mt-20">
-          <div className="container mx-auto px-4 py-8">
-            <div className="text-center text-sm text-muted-foreground">
-              <p>© 2025 Pathixo. Building tomorrow's technology today.</p>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </main>
   )
