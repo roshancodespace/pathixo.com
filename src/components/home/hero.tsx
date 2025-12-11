@@ -2,7 +2,7 @@
 "use client"
 
 import { motion } from 'motion/react'
-import RotatingText from "./RotatingText"
+import RotatingText from "../RotatingText"
 import Link from 'next/link'
 
 export function Hero() {

@@ -3,17 +3,17 @@
 
 import React, { useMemo } from 'react'
 import dynamic from 'next/dynamic';
-import ScrollFloat from './ScrollFloat';
-import { NumberTicker } from './magicui/number-ticker';
+import ScrollFloat from '../ScrollFloat';
+import { NumberTicker } from '../magicui/number-ticker';
 import { COBEOptions } from 'cobe';
 
-const Globe = dynamic(() => import('./magicui/globe').then((mod) => mod.Globe), {
+const Globe = dynamic(() => import('../magicui/globe').then((mod) => mod.Globe), {
     ssr: false,
-    loading: () => <div className="h-[100px] w-full" /> 
+    loading: () => <div className="h-[100px] w-full" />
 });
 
-const ScrollVelocityContainer = dynamic(() => import('./magicui/scroll-based-velocity').then((mod) => mod.ScrollVelocityContainer), { ssr: false });
-const ScrollVelocityRow = dynamic(() => import('./magicui/scroll-based-velocity').then((mod) => mod.ScrollVelocityRow), { ssr: false });
+const ScrollVelocityContainer = dynamic(() => import('../magicui/scroll-based-velocity').then((mod) => mod.ScrollVelocityContainer), { ssr: false });
+const ScrollVelocityRow = dynamic(() => import('../magicui/scroll-based-velocity').then((mod) => mod.ScrollVelocityRow), { ssr: false });
 
 export const testimonials = [
     {
@@ -83,7 +83,7 @@ TestimonialCard.displayName = "TestimonialCard";
 
 const Testimonials = () => {
     const globeConfig = useMemo<COBEOptions>(() => ({
-        devicePixelRatio: 2, 
+        devicePixelRatio: 2,
         width: 100,
         height: 100,
         phi: 0,
@@ -91,7 +91,7 @@ const Testimonials = () => {
         dark: 1,
         diffuse: 1.2,
         scale: 1,
-        mapSamples: 5000, 
+        mapSamples: 5000,
         mapBrightness: 6,
         baseColor: [1, 1, 1],
         markerColor: [1, 0.5, 1],
@@ -101,7 +101,7 @@ const Testimonials = () => {
             { location: [37.7595, -122.4367], size: 0.03 },
             { location: [40.7128, -74.006], size: 0.1 },
         ],
-        onRender: () => {},
+        onRender: () => { },
     }), []);
 
     return (
@@ -115,7 +115,7 @@ const Testimonials = () => {
                 <h1 className='text-3xl md:text-5xl font-medium mb-5 mt-5 z-[1]'>
                     Don&apos;t take our word for it. <br />Over <NumberTicker className='text-white' value={100} />+ people trust us</h1>
                 <p className='z-10'>We care for our customer&apos;s satisfaction.</p>
-                
+
                 <Globe config={globeConfig} className='top-70 z-0' />
             </div>
             <div className='bg-black relative z-[100]'>

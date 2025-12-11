@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import Modal from "@/components/modal";
 import { ProjectContactForm } from "@/components/project-consultation-form";
-import { Footer } from "@/components/footer";
+import { Footer } from "@/components/home/footer";
 import Link from "next/link";
 
 // --- Type Definitions ---
@@ -233,7 +233,7 @@ export default function AboutPage() {
                     </section>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                 <ProjectContactForm />
             </Modal>

@@ -1,4 +1,4 @@
-import { Footer } from "@/components/footer"
+import { Footer } from "@/components/home/footer"
 import { Button } from "@/components/ui/button"
 import {
   Sparkles,

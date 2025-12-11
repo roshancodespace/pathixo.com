@@ -3,11 +3,11 @@
 import { ArrowRight } from 'lucide-react'
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { BoxReveal } from './magicui/box-reveal'
-import { LineShadowText } from './magicui/line-shadow-text'
-import TextType from './TextType'
-import { motion } from 'motion/react' // Corrected import
-import Modal from './modal'
+import { BoxReveal } from '../magicui/box-reveal'
+import { LineShadowText } from '../magicui/line-shadow-text'
+import TextType from '../TextType'
+import { motion } from 'motion/react'
+import Modal from '../modal'
 
 const services = [
   {
@@ -44,7 +44,7 @@ const services = [
 
 function Services() {
   const [selectedService, setSelectedService] = useState<null | typeof services[0]>(null)
-  
+
   return (
     <section
       className="min-h-screen relative z-[1] max-w-7xl pt-40 px-4 space-y-12 w-full mx-auto"
@@ -92,7 +92,7 @@ function Services() {
           </div>
         </div>
       </div>
-      
+
       <div>
         {services.map((service) => (
           <div

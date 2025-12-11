@@ -2,14 +2,14 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import Link from "next/link";
 
 export function Problems() {
   return (
     <section className="min-h-[105vh] w-screen flex items-center">
       <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        
+
         {/* Left column: problem + solution framing */}
         <div>
           <motion.h3
@@ -29,8 +29,8 @@ export function Problems() {
             transition={{ delay: 0.08, duration: 0.45 }}
             className="mt-4 text-zinc-400 max-w-lg"
           >
-            Juggling multiple vendors, outdated infrastructure, and slow release 
-            cycles eats away at growth. Teams lose focus on the actual product 
+            Juggling multiple vendors, outdated infrastructure, and slow release
+            cycles eats away at growth. Teams lose focus on the actual product
             while firefighting hosting, pipelines, and integrations.
           </motion.p>
 
