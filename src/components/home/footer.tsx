@@ -97,7 +97,7 @@ export function Footer({ reqConsultation = false }: { reqConsultation?: boolean 
 
               {/* Office Locations */}
               <h3 className="text-white font-semibold text-lg mt-6 mb-3">Offices:</h3>
-              <p className="font-light text-zinc-400 text-sm">Lal Kuan, New Delhi - 110044</p>
+              <p className="font-light text-zinc-400 text-sm">B 27 Knowledge park 111 Greater Noida</p>
               <p className="font-light text-zinc-400 text-sm">
   Bon Bihari, Bose Road, Howrah - 711101, West Bengal
 </p>
