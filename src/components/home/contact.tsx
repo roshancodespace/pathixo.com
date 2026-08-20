@@ -2,12 +2,13 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
-import { Linkedin, Github, Twitter, Mail, Phone, Loader2, Check, Instagram } from "lucide-react"
+import { Mail, Phone, Loader2, Check } from "lucide-react"
+import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa"
 
 const socialLinks = [
-  { icon: Instagram, url: "https://www.instagram.com/pathixo_?igsh=N21vb2ZrMmQxNHNs" },
-  { icon: Linkedin, url: "https://www.linkedin.com/company/pathixopvtltd" },
-  { icon: Github, url: "https://github.com/pathixo" },
+  { icon: FaInstagram, url: "https://www.instagram.com/pathixo_?igsh=N21vb2ZrMmQxNHNs" },
+  { icon: FaLinkedinIn, url: "https://www.linkedin.com/company/pathixopvtltd" },
+  { icon: FaGithub, url: "https://github.com/pathixo" },
 ]
 
 export default function ContactUs() {

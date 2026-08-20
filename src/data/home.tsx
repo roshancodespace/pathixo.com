@@ -1,4 +1,4 @@
-import React from 'react';
+import { FaAws } from "react-icons/fa";
 import {
     SiNextdotjs,
     SiReact,
@@ -12,7 +12,6 @@ import {
     SiGraphql,
     SiDocker,
     SiKubernetes,
-    SiAwsorganizations,
     SiGooglecloud,
     SiFirebase,
     SiVercel,
@@ -35,7 +34,7 @@ export const techLogos = [
     { node: <SiGraphql />, title: "GraphQL", href: "https://graphql.org" },
     { node: <SiDocker />, title: "Docker", href: "https://www.docker.com" },
     { node: <SiKubernetes />, title: "Kubernetes", href: "https://kubernetes.io" },
-    { node: <SiAwsorganizations />, title: "AWS", href: "https://aws.amazon.com" },
+    { node: <FaAws />, title: "AWS", href: "https://aws.amazon.com" },
     { node: <SiGooglecloud />, title: "Google Cloud", href: "https://cloud.google.com" },
     { node: <SiFirebase />, title: "Firebase", href: "https://firebase.google.com" },
     { node: <SiVercel />, title: "Vercel", href: "https://vercel.com" },
